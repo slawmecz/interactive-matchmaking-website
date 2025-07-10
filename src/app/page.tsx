@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Phone, Shield, Clock, Star, CheckCircle, Users, MapPin } from "lucide-react";
+import Image from "next/image";
 
 interface StoryStep {
   id: number;
@@ -21,52 +22,52 @@ const storySteps: StoryStep[] = [
   {
     id: 0,
     title: "Wyobraź sobie...",
-    content: "...że wybieranie partnera życiowego mogłoby być przygodą pełną komfortu, anonimowości i wyboru?",
-    subtitle: "To nie bajka - to Biuro Matrymonialne Magnes",
+    content: "...że wybieranie partnera życiowego mogłoby być przygodą pełną komfortu, anonimowości i\u00A0wyboru?",
+    subtitle: "To nie bajka - to\u00A0Biuro Matrymonialne Magnes",
     options: ["🔍 Rozpocznij swoją drogę"]
   },
   {
     id: 1,
     title: "Wybierasz świat – Twój sposób działania",
-    content: "Jesteś osobą publiczną? Szanujemy Twoją prywatność. U nas nie musisz przekazywać zdjęcia – wszystko odbywa się za każdorazową Twoją zgodą.",
+    content: "Jesteś osobą publiczną? Szanujemy Twoją prywatność. U\u00A0nas nie musisz przekazywać zdjęcia – wszystko odbywa się\u00A0za\u00A0każdorazową Twoją zgodą.",
     options: ["🌫️ Zachowaj anonimowość", "📸 Pokaż siebie tylko wtedy, gdy chcesz", "➡️ Przejdź dalej"]
   },
   {
     id: 2,
-    title: "Czas jest po Twojej stronie",
-    content: "Nie musisz się spieszyć. Mamy dla Ciebie 12 miesięcy aktywnego przedstawiania idealnych dopasowań – zgodnych z Twoimi preferencjami.",
+    title: "Czas jest po\u00A0Twojej stronie",
+    content: "Nie musisz się spieszyć. Mamy dla Ciebie 12\u00A0miesięcy aktywnego przedstawiania idealnych dopasowań – zgodnych z\u00A0Twoimi preferencjami.",
     options: ["➡️ Poznaj sposób działania Biura"]
   },
-  {
+        {
     id: 3,
-    title: "Odwracamy role – to Ty wybierasz",
-    content: "To Ty decydujesz, z kim się spotkasz. Nie jesteś wybierany – Ty wybierasz. Masz pierwszeństwo względem innych klientów.",
-    options: ["🔝 Otrzymaj dostęp do najnowszych zgłoszeń jako pierwszy", "🎯 Ustal swoje preferencje, my znajdziemy resztę", "➡️ Chcę zobaczyć przykłady ofert"]
+    title: "Odwracamy role – to\u00A0Ty wybierasz",
+    content: "To Ty decydujesz, z\u00A0kim się\u00A0spotkasz. Nie jesteś wybierany – Ty\u00A0wybierasz. Masz pierwszeństwo względem Klientów z\u00A0innymi pakietami.",
+    options: ["🔝 Pierwszeństwo dostępu", "🎯 Dopasujemy oferty", "➡️ Przejdź dalej"]
   },
-  {
+        {
     id: 4,
-    title: "Właściciel biura – tylko dla Ciebie",
-    content: "Nie masz czasu? Właściciel biura przyjedzie do Ciebie. Przedstawienie ofert, profesjonalna sesja zdjęciowa, rozmowa w komfortowych warunkach – bez pośpiechu.",
-    options: ["➡️ Zarezerwuj prywatną konsultację"]
+    title: "Właściciel biura – tylko dla\u00A0Ciebie",
+    content: "Nie masz czasu? Właściciel biura przyjedzie do\u00A0Ciebie. Przedstawienie ofert, profesjonalna sesja zdjęciowa, rozmowa w\u00A0komfortowych warunkach – bez pośpiechu.",
+    options: ["➡️ Przejdź dalej"]
   },
-  {
+        {
     id: 5,
-    title: "Twoja oferta – widoczna i skuteczna",
-    content: "Twoje ogłoszenie może zostać wypromowane w internecie, na naszych kanałach społecznościowych. Zyskujesz zasięg i zainteresowanie.",
-    options: ["📣 Zgoda na promocję", "🙈 Zachowaj prywatność – nadal możesz wybrać kogo chcesz", "➡️ Zobacz przykładowe ogłoszenia"]
+    title: "Twoja oferta – widoczna i\u00A0skuteczna",
+    content: "Twoje ogłoszenie może zostać wypromowane w\u00A0internecie, na\u00A0naszych kanałach społecznościowych. Zyskujesz zasięg i\u00A0zainteresowanie.",
+    options: ["📣 Zgoda na promocję", "🙈 Zachowaj prywatność", "➡️ Przejdź dalej"]
   }
 ];
 
 const benefits = [
-  "Anonimowość i dyskrecja",
-  "12 miesięcy ofert szytych na miarę", 
+  "Anonimowość i\u00A0dyskrecja",
+  "12 miesięcy ofert szytych na\u00A0miarę", 
   "Ty wybierasz – masz kontrolę",
-  "Pierwszeństwo w dostępie do nowych osób",
+  "Pierwszeństwo w\u00A0dostępie do\u00A0nowych osób",
   "Profesjonalna sesja zdjęciowa",
   "Wypromowanie ogłoszenia",
-  "Bezpośredni kontakt z właścicielem",
-  "Możliwość organizacji spotkań w biurze lub u Ciebie",
-  "Wszystko – do skutku!"
+  "Bezpośredni kontakt z\u00A0właścicielem",
+  "Możliwość organizacji spotkań w\u00A0biurze lub u\u00A0Ciebie",
+  "Widoczność Twojej oferty – do\u00A0skutku!"
 ];
 
 const links = [
@@ -101,32 +102,46 @@ export default function Home() {
     setTimeout(nextStep, 800);
   };
 
-  const progress = ((currentStep + 1) / storySteps.length) * 100;
+  const progress = showFinal ? 100 : (currentStep / storySteps.length) * 100;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
-      {/* Floating Hearts Animation */}
+      {/* Floating Hearts and Brand Elements Animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-pink-400 opacity-15"
-            initial={{ y: "110vh", x: 100 + i * 200 }}
-            animate={{
-              y: "-10vh", 
-              x: 50 + i * 200,
-              rotate: [0, 360]
-            }}
-            transition={{
-              duration: 20 + i * 3,
-              repeat: Infinity,
-              ease: "linear",
-              delay: i * 2
-            }}
-          >
-            <Heart size={24} fill="currentColor" />
-          </motion.div>
-        ))}
+        {[...Array(6)].map((_, i) => {
+          const isSlice = i % 3 === 0; // Every 3rd element uses slice1.svg
+          return (
+            <motion.div
+              key={i}
+              className="absolute opacity-15"
+              initial={{ y: "110vh", x: 100 + i * 150 }}
+              animate={{
+                y: "-10vh", 
+                x: 50 + i * 150,
+                rotate: [0, 360],
+                scale: [1, 1.2, 1]
+              }}
+              transition={{
+                duration: 25 + i * 2,
+                repeat: Infinity,
+                ease: "linear",
+                delay: i * 3
+              }}
+            >
+              {isSlice ? (
+                <Image
+                  src="/slice1.svg"
+                  alt="Heart element"
+                  width={30}
+                  height={30}
+                  className="text-pink-400"
+                />
+              ) : (
+                <Heart size={24} fill="currentColor" className="text-pink-400" />
+              )}
+            </motion.div>
+          );
+        })}
       </div>
 
       <div className="container mx-auto px-4 py-8 relative z-10">
@@ -137,20 +152,42 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex items-center justify-center mb-4">
             <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="relative"
             >
-              <Heart 
-                size={48} 
-                className="text-pink-600" 
-                fill="currentColor"
+              <Image
+                src="/Logo.svg"
+                alt="Biuro Matrymonialne Magnes Logo"
+                width={350}
+                height={88}
+                className="h-16 md:h-20 lg:h-24 w-auto"
+                priority
               />
+              {/* Beating slice element on the logo */}
+              <motion.div
+                className="absolute -top-2 -right-2"
+                animate={{ 
+                  scale: [1, 1.3, 1],
+                  rotate: [0, 10, -10, 0]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  delay: 1
+                }}
+              >
+                <Image
+                  src="/slice1.svg"
+                  alt="Heart slice"
+                  width={24}
+                  height={24}
+                  className="opacity-80"
+                />
+              </motion.div>
             </motion.div>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Biuro Matrymonialne Magnes
-            </h1>
           </div>
           <p className="text-xl text-gray-600 font-medium">22 lata doświadczenia w łączeniu serc</p>
         </motion.div>
@@ -228,21 +265,35 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto"
           >
-            <Card className="bg-white/95 backdrop-blur-sm shadow-2xl border-0">
-              <CardHeader className="text-center pb-6">
-                <motion.div
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="mx-auto mb-4"
-                >
-                  <Heart size={64} className="text-pink-600" fill="currentColor" />
-                </motion.div>
+                         <Card className="bg-white/95 backdrop-blur-sm shadow-2xl border-0">
+               <CardHeader className="text-center pb-6">
+                 <motion.div
+                   animate={{ 
+                     scale: [1, 1.2, 1, 1.15, 1, 1, 1, 1],
+                     y: [0, -2, 0, -1, 0, 0, 0, 0]
+                   }}
+                   transition={{ 
+                     duration: 2.5, 
+                     repeat: Infinity,
+                     ease: "easeInOut",
+                     times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 1]
+                   }}
+                   className="mx-auto mb-4"
+                 >
+                   <Image
+                     src="/slice1.svg"
+                     alt="Heart element"
+                     width={80}
+                     height={80}
+                     className="filter drop-shadow-lg"
+                   />
+                 </motion.div>
                 <CardTitle className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   Pakiet Najkorzystniejszy
                 </CardTitle>
-                <p className="text-xl text-gray-700 mb-8">
-                  Wszystko, czego potrzebujesz, aby znaleźć miłość swojego życia
-                </p>
+                                 <p className="text-xl text-gray-700 mb-8">
+                   Wszystko, czego potrzebujesz, aby znaleźć miłość swojego życia
+                 </p>
               </CardHeader>
               <CardContent>
                 {/* Benefits Grid */}
@@ -261,7 +312,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Main CTAs */}
+                                 {/* Main CTAs */}
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <motion.div
                     whileHover={{ scale: 1.02 }}
@@ -287,6 +338,38 @@ export default function Home() {
                     >
                       <a href="tel:+48600434700">
                         📅 Umów spotkanie: +48 600 434 700
+                      </a>
+                    </Button>
+                  </motion.div>
+                </div>
+
+                {/* Examples and Consultation CTAs */}
+                <div className="grid md:grid-cols-2 gap-4 mb-8">
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button 
+                      asChild
+                      variant="secondary" 
+                      className="w-full h-16 text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg"
+                    >
+                      <a href="https://matrymonialne24.pl/" target="_blank" rel="noopener noreferrer">
+                        💕 Chcę zobaczyć przykłady ofert
+                      </a>
+                    </Button>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button 
+                      asChild
+                      variant="outline" 
+                      className="w-full h-16 text-lg font-bold border-2 border-orange-400 text-orange-600 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100 shadow-lg"
+                    >
+                      <a href="https://matrymonialne24.pl/kontakt/" target="_blank" rel="noopener noreferrer">
+                        🏠 Zarezerwuj prywatną konsultację
                       </a>
                     </Button>
                   </motion.div>
@@ -354,7 +437,7 @@ export default function Home() {
          >
            <motion.a
              href="tel:+48600434700"
-             className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full shadow-2xl"
+             className="relative flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full shadow-2xl"
              whileHover={{ scale: 1.1 }}
              whileTap={{ scale: 0.9 }}
              animate={{ 
@@ -363,6 +446,27 @@ export default function Home() {
              transition={{ duration: 2, repeat: Infinity }}
            >
              <Phone size={28} />
+             {/* Small beating slice element */}
+             <motion.div
+               className="absolute -top-1 -right-1"
+               animate={{ 
+                 scale: [1, 1.4, 1],
+                 rotate: [0, 15, -15, 0]
+               }}
+               transition={{ 
+                 duration: 1.5, 
+                 repeat: Infinity,
+                 delay: 0.5
+               }}
+             >
+               <Image
+                 src="/slice1.svg"
+                 alt="Heart accent"
+                 width={16}
+                 height={16}
+                 className="opacity-90 filter drop-shadow-sm"
+               />
+             </motion.div>
            </motion.a>
          </motion.div>
        </div>
