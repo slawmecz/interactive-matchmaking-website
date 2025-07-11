@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Phone, Shield, Clock, Star, CheckCircle, Users, MapPin } from "lucide-react";
+import { Heart, Phone, Clock, CheckCircle, Users } from "lucide-react";
 import Image from "next/image";
 
 interface StoryStep {
@@ -83,11 +83,6 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState(0);
   const [showFinal, setShowFinal] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const [heartsVisible, setHeartsVisible] = useState(false);
-
-  useEffect(() => {
-    setHeartsVisible(true);
-  }, []);
 
   const nextStep = () => {
     if (currentStep < storySteps.length - 1) {
