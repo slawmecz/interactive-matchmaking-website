@@ -28,9 +28,9 @@ const storySteps: StoryStep[] = [
   },
   {
     id: 1,
-    title: "Wybierasz świat – Twój sposób działania",
+    title: "To Ty wybierasz sposób działania",
     content: "Jesteś osobą publiczną? Szanujemy Twoją prywatność. U\u00A0nas nie musisz przekazywać zdjęcia – wszystko odbywa się\u00A0za\u00A0każdorazową Twoją zgodą.",
-    options: ["🌫️ Zachowaj anonimowość", "📸 Pokaż siebie tylko wtedy, gdy chcesz", "➡️ Przejdź dalej"]
+    options: ["🌫️ Zachowaj anonimowość", "📸 Pokaż siebie tylko wtedy, gdy chcesz", "⏳ Zdecyduj później"]
   },
   {
     id: 2,
@@ -42,19 +42,19 @@ const storySteps: StoryStep[] = [
     id: 3,
     title: "Odwracamy role – to\u00A0Ty wybierasz",
     content: "To Ty decydujesz, z\u00A0kim się\u00A0spotkasz. Nie jesteś wybierany – Ty\u00A0wybierasz. Masz pierwszeństwo względem Klientów z\u00A0innymi pakietami.",
-    options: ["🔝 Pierwszeństwo dostępu", "🎯 Dopasujemy oferty", "➡️ Przejdź dalej"]
+    options: ["🎯 Ja wybieram", "👤 Wybieram i jestem wybierany"]
   },
         {
     id: 4,
     title: "Właściciel biura – tylko dla\u00A0Ciebie",
     content: "Nie masz czasu? Właściciel biura przyjedzie do\u00A0Ciebie. Przedstawienie ofert, profesjonalna sesja zdjęciowa, rozmowa w\u00A0komfortowych warunkach – bez pośpiechu.",
-    options: ["➡️ Przejdź dalej"]
+    options: ["🏠 Spotkanie u\u00A0Ciebie", "🏢 Spotkanie w\u00A0siedzibie"]
   },
         {
     id: 5,
     title: "Twoja oferta – widoczna i\u00A0skuteczna",
     content: "Twoje ogłoszenie może zostać wypromowane w\u00A0internecie, na\u00A0naszych kanałach społecznościowych. Zyskujesz zasięg i\u00A0zainteresowanie.",
-    options: ["📣 Zgoda na promocję", "🙈 Zachowaj prywatność", "➡️ Przejdź dalej"]
+    options: ["📱 Promuj w\u00A0mediach społecznościowych", "🚫 Nie promuj w\u00A0mediach społecznościowych", "⏳ Zdecyduj później"]
   }
 ];
 
@@ -108,16 +108,16 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
       {/* Floating Hearts and Brand Elements Animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(6)].map((_, i) => {
+        {[...Array(9)].map((_, i) => {
           const isSlice = i % 3 === 0; // Every 3rd element uses slice1.svg
           return (
             <motion.div
               key={i}
               className="absolute opacity-15"
-              initial={{ y: "110vh", x: 100 + i * 150 }}
+              initial={{ y: "110vh", x: 100 + i * 120 }}
               animate={{
                 y: "-10vh", 
-                x: 50 + i * 150,
+                x: 50 + i * 120,
                 rotate: [0, 360],
                 scale: [1, 1.2, 1]
               }}
@@ -125,7 +125,7 @@ export default function Home() {
                 duration: 25 + i * 2,
                 repeat: Infinity,
                 ease: "linear",
-                delay: i * 3
+                delay: i * 2.5
               }}
             >
               {isSlice ? (
@@ -312,6 +312,59 @@ export default function Home() {
                   ))}
                 </div>
 
+                {/* Hearts Connection Animation - Two Hearts Meet in Center */}
+                <motion.div 
+                  className="relative mb-12 h-24"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2, duration: 1 }}
+                >
+                  {/* Connection Sparkles */}
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute bottom-4 text-yellow-400"
+                      style={{ left: `${50 + (i - 1) * 5}%` }}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ 
+                        opacity: [0, 1, 0],
+                        scale: [0, 1.5, 0],
+                        rotate: [0, 180, 360]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2 + i * 0.3
+                      }}
+                    >
+                      ✨
+                    </motion.div>
+                  ))}
+
+                  {/* Floating Positive Words */}
+                  {["💕 Miłość", "🤝 Zaufanie", "⭐ Doświadczenie", "😊 Szczęście", "💑 Partnerstwo", "🌟 Harmonia"].map((word, index) => (
+                    <motion.div
+                      key={word}
+                      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-purple-600 font-bold text-lg text-center"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ 
+                        opacity: [0, 1, 1, 0],
+                        y: [10, -10, -10, 10]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2.5 + (index * 2),
+                        repeatDelay: (6 - 1) * 2
+                      }}
+                    >
+                      {word}
+                    </motion.div>
+                  ))}
+                </motion.div>
+
                                  {/* Main CTAs */}
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <motion.div
@@ -401,6 +454,82 @@ export default function Home() {
                   </div>
                 </div>
 
+                {/* Magnet Attracts Hearts Animation - Second Magnet */}
+                <motion.div 
+                  className="relative mb-12 overflow-hidden h-24"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 3, duration: 1 }}
+                >
+                  {/* Magnet */}
+                  <motion.div
+                    className="absolute bottom-1 left-8 text-5xl"
+                    style={{ transform: 'rotate(270deg)' }}
+                    animate={{ 
+                      y: [0, -5, 0],
+                      rotate: [270, 272, 268, 270]
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    🧲
+                  </motion.div>
+                  
+                  {/* Attracted Hearts */}
+                  {[...Array(4)].map((_, i) => {
+                    const yOffsets = [-15, 10, -5, 15];
+                    return (
+                      <motion.div
+                        key={i}
+                        className="absolute bottom-4 text-pink-500"
+                        initial={{ 
+                          x: `${100 + i * 20}vw`,
+                          y: yOffsets[i]
+                        }}
+                        animate={{ 
+                          x: "4rem",
+                          y: [yOffsets[i], yOffsets[i] - 10, yOffsets[i]],
+                          rotate: [0, 360]
+                        }}
+                        transition={{ 
+                          x: {
+                            duration: 4 + i * 0.5,
+                            repeat: Infinity,
+                            ease: "easeOut",
+                            delay: i * 1.5
+                          },
+                          y: {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          },
+                          rotate: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }
+                        }}
+                      >
+                        {i % 2 === 0 ? (
+                          <Heart size={20} fill="currentColor" />
+                        ) : (
+          <Image
+                            src="/slice1.svg"
+                            alt="Heart element"
+                            width={20}
+                            height={20}
+                          />
+                        )}
+                      </motion.div>
+                    );
+                  })}
+                  
+
+                </motion.div>
+
                 {/* Contact Info */}
                 <motion.div 
                   className="mt-8 p-6 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl text-center"
@@ -426,93 +555,7 @@ export default function Home() {
                </CardContent>
              </Card>
 
-             {/* Magnet Attracts Hearts Animation - Final Page Only */}
-             <motion.div 
-               className="absolute bottom-16 left-0 right-0 pointer-events-none overflow-hidden h-24"
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ delay: 2, duration: 1 }}
-             >
-               {/* Magnet */}
-               <motion.div
-                 className="absolute bottom-8 left-8 text-6xl"
-                 style={{ transform: 'rotate(270deg)' }}
-                 animate={{ 
-                   y: [0, -5, 0],
-                   rotate: [270, 272, 268, 270]
-                 }}
-                 transition={{ 
-                   duration: 3, 
-                   repeat: Infinity,
-                   ease: "easeInOut"
-                 }}
-               >
-                 🧲
-               </motion.div>
-               
-               {/* Attracted Hearts */}
-               {[...Array(4)].map((_, i) => {
-                 const yOffsets = [-15, 10, -5, 15];
-                 return (
-                   <motion.div
-                     key={i}
-                     className="absolute bottom-8 text-pink-500"
-                     initial={{ 
-                       x: `${100 + i * 20}vw`,
-                       y: yOffsets[i]
-                     }}
-                     animate={{ 
-                       x: "4rem",
-                       y: [yOffsets[i], yOffsets[i] - 10, yOffsets[i]],
-                       rotate: [0, 360]
-                     }}
-                     transition={{ 
-                       x: {
-                         duration: 4 + i * 0.5,
-                         repeat: Infinity,
-                         ease: "easeOut",
-                         delay: i * 1.5
-                       },
-                       y: {
-                         duration: 2,
-                         repeat: Infinity,
-                         ease: "easeInOut"
-                       },
-                       rotate: {
-                         duration: 3,
-                         repeat: Infinity,
-                         ease: "linear"
-                       }
-                     }}
-                   >
-                     {i % 2 === 0 ? (
-                       <Heart size={24} fill="currentColor" />
-                     ) : (
-                       <Image
-                         src="/slice1.svg"
-                         alt="Heart element"
-                         width={24}
-                         height={24}
-                       />
-                     )}
-                   </motion.div>
-                 );
-               })}
-               
-               {/* Magnetic field effect */}
-               <motion.div
-                 className="absolute bottom-8 left-8 w-32 h-32 border-2 border-purple-300 rounded-full opacity-30"
-                 animate={{ 
-                   scale: [1, 1.3, 1],
-                   opacity: [0.3, 0.1, 0.3]
-                 }}
-                 transition={{ 
-                   duration: 2, 
-                   repeat: Infinity,
-                   ease: "easeInOut"
-                 }}
-               />
-             </motion.div>
+
            </motion.div>
          )}
          
