@@ -158,14 +158,14 @@ export default function Home() {
               transition={{ duration: 3, repeat: Infinity }}
               className="relative"
             >
-              <Image
+        <Image
                 src="/Logo.svg"
                 alt="Biuro Matrymonialne Magnes Logo"
                 width={350}
                 height={88}
                 className="h-16 md:h-20 lg:h-24 w-auto"
-                priority
-              />
+          priority
+        />
               {/* Beating slice element on the logo */}
               <motion.div
                 className="absolute -top-2 -right-2"
@@ -178,8 +178,8 @@ export default function Home() {
                   repeat: Infinity,
                   delay: 1
                 }}
-              >
-                <Image
+          >
+            <Image
                   src="/slice1.svg"
                   alt="Heart slice"
                   width={24}
@@ -279,8 +279,8 @@ export default function Home() {
                      times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 1]
                    }}
                    className="mx-auto mb-4"
-                 >
-                   <Image
+        >
+          <Image
                      src="/slice1.svg"
                      alt="Heart element"
                      width={80}
@@ -288,9 +288,9 @@ export default function Home() {
                      className="filter drop-shadow-lg"
                    />
                  </motion.div>
-                <CardTitle className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Pakiet Najkorzystniejszy
-                </CardTitle>
+                                 <CardTitle className="text-4xl md:text-5xl mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+                   Pakiet Najkorzystniejszy
+                 </CardTitle>
                                  <p className="text-xl text-gray-700 mb-8">
                    Wszystko, czego potrzebujesz, aby znaleźć miłość swojego życia
                  </p>
@@ -422,12 +422,102 @@ export default function Home() {
                       <span className="text-lg text-purple-700">Setki udanych związków</span>
                     </div>
                   </div>
-                </motion.div>
-              </CardContent>
-            </Card>
-          </motion.div>
-                 )}
+                                 </motion.div>
+               </CardContent>
+             </Card>
+
+             {/* Magnet Attracts Hearts Animation - Final Page Only */}
+             <motion.div 
+               className="absolute bottom-16 left-0 right-0 pointer-events-none overflow-hidden h-24"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ delay: 2, duration: 1 }}
+             >
+               {/* Magnet */}
+               <motion.div
+                 className="absolute bottom-8 left-8 text-6xl"
+                 style={{ transform: 'rotate(270deg)' }}
+                 animate={{ 
+                   y: [0, -5, 0],
+                   rotate: [270, 272, 268, 270]
+                 }}
+                 transition={{ 
+                   duration: 3, 
+                   repeat: Infinity,
+                   ease: "easeInOut"
+                 }}
+               >
+                 🧲
+               </motion.div>
+               
+               {/* Attracted Hearts */}
+               {[...Array(4)].map((_, i) => {
+                 const yOffsets = [-15, 10, -5, 15];
+                 return (
+                   <motion.div
+                     key={i}
+                     className="absolute bottom-8 text-pink-500"
+                     initial={{ 
+                       x: `${100 + i * 20}vw`,
+                       y: yOffsets[i]
+                     }}
+                     animate={{ 
+                       x: "4rem",
+                       y: [yOffsets[i], yOffsets[i] - 10, yOffsets[i]],
+                       rotate: [0, 360]
+                     }}
+                     transition={{ 
+                       x: {
+                         duration: 4 + i * 0.5,
+                         repeat: Infinity,
+                         ease: "easeOut",
+                         delay: i * 1.5
+                       },
+                       y: {
+                         duration: 2,
+                         repeat: Infinity,
+                         ease: "easeInOut"
+                       },
+                       rotate: {
+                         duration: 3,
+                         repeat: Infinity,
+                         ease: "linear"
+                       }
+                     }}
+                   >
+                     {i % 2 === 0 ? (
+                       <Heart size={24} fill="currentColor" />
+                     ) : (
+                       <Image
+                         src="/slice1.svg"
+                         alt="Heart element"
+                         width={24}
+                         height={24}
+                       />
+                     )}
+                   </motion.div>
+                 );
+               })}
+               
+               {/* Magnetic field effect */}
+               <motion.div
+                 className="absolute bottom-8 left-8 w-32 h-32 border-2 border-purple-300 rounded-full opacity-30"
+                 animate={{ 
+                   scale: [1, 1.3, 1],
+                   opacity: [0.3, 0.1, 0.3]
+                 }}
+                 transition={{ 
+                   duration: 2, 
+                   repeat: Infinity,
+                   ease: "easeInOut"
+                 }}
+               />
+             </motion.div>
+           </motion.div>
+         )}
          
+         
+
          {/* Floating Phone Button for Mobile */}
          <motion.div
            className="fixed bottom-6 right-6 z-50 md:hidden"
@@ -458,18 +548,18 @@ export default function Home() {
                  repeat: Infinity,
                  delay: 0.5
                }}
-             >
-               <Image
+        >
+          <Image
                  src="/slice1.svg"
                  alt="Heart accent"
-                 width={16}
-                 height={16}
+            width={16}
+            height={16}
                  className="opacity-90 filter drop-shadow-sm"
                />
              </motion.div>
            </motion.a>
          </motion.div>
        </div>
-     </div>
-   );
+    </div>
+  );
 }
