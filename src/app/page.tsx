@@ -30,7 +30,7 @@ const storySteps: StoryStep[] = [
     id: 1,
     title: "To Ty wybierasz sposób działania",
     content: "Jesteś osobą publiczną? Szanujemy Twoją prywatność. U\u00A0nas nie musisz przekazywać zdjęcia – wszystko odbywa się\u00A0za\u00A0każdorazową Twoją zgodą.",
-    options: ["🌫️ Zachowaj anonimowość", "📸 Pokaż siebie tylko wtedy, gdy chcesz", "⏳ Zdecyduj później"]
+    options: ["🌫️ Zachowaj anonimowość", "📸 Pokaż siebie tylko, gdy chcesz", "⏳ Zdecyduj później"]
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ const storySteps: StoryStep[] = [
     id: 5,
     title: "Twoja oferta – widoczna i\u00A0skuteczna",
     content: "Twoje ogłoszenie może zostać wypromowane w\u00A0internecie, na\u00A0naszych kanałach społecznościowych. Zyskujesz zasięg i\u00A0zainteresowanie.",
-    options: ["📱 Promuj w\u00A0mediach społecznościowych", "🚫 Nie promuj w\u00A0mediach społecznościowych", "⏳ Zdecyduj później"]
+    options: ["📱 Promuj w\u00A0social media", "🚫 Nie promuj w\u00A0social media", "⏳ Zdecyduj później"]
   }
 ];
 
@@ -240,7 +240,7 @@ export default function Home() {
                         >
                                                      <Button
                              onClick={() => selectOption(option)}
-                             className="w-full max-w-md mx-auto h-16 md:h-20 text-lg md:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation"
+                             className="w-full max-w-md mx-auto h-16 md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-4"
                            >
                             {option}
                           </Button>
@@ -368,10 +368,11 @@ export default function Home() {
                   >
                     <Button 
                       asChild
-                      className="w-full h-20 text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-xl"
+                      className="w-full h-20 md:h-20 text-lg md:text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-xl px-4"
                     >
-                      <a href="https://matrymonialne24.pl/ankieta/" target="_blank" rel="noopener noreferrer">
-                        🔐 Rozpocznij z Pakietem Najkorzystniejszym
+                      <a href="https://matrymonialne24.pl/ankieta/" target="_blank" rel="noopener noreferrer" className="flex flex-col md:flex-row md:items-center md:justify-center">
+                        <span>🔐 Rozpocznij z Pakietem</span>
+                        <span className="md:ml-2">Najkorzystniejszym</span>
                       </a>
                     </Button>
                   </motion.div>
@@ -382,10 +383,11 @@ export default function Home() {
                     <Button 
                       asChild
                       variant="outline" 
-                      className="w-full h-20 text-xl font-bold border-2 border-purple-600 text-purple-600 hover:bg-purple-50"
+                      className="w-full h-20 md:h-20 text-lg md:text-xl font-bold border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-4"
                     >
-                      <a href="tel:+48600434700">
-                        📅 Umów spotkanie: +48 600 434 700
+                      <a href="tel:+48600434700" className="flex flex-col md:flex-row md:items-center md:justify-center">
+                        <span>📅 Umów spotkanie:</span>
+                        <span className="md:ml-2">+48 600 434 700</span>
                       </a>
                     </Button>
                   </motion.div>
@@ -400,7 +402,7 @@ export default function Home() {
                     <Button 
                       asChild
                       variant="secondary" 
-                      className="w-full h-16 text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg"
+                      className="w-full h-14 md:h-16 text-base md:text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg px-4"
                     >
                       <a href="https://matrymonialne24.pl/" target="_blank" rel="noopener noreferrer">
                         💕 Chcę zobaczyć przykłady ofert
@@ -414,7 +416,7 @@ export default function Home() {
                     <Button 
                       asChild
                       variant="outline" 
-                      className="w-full h-16 text-lg font-bold border-2 border-orange-400 text-orange-600 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100 shadow-lg"
+                      className="w-full h-14 md:h-16 text-base md:text-lg font-bold border-2 border-orange-400 text-orange-600 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100 shadow-lg px-4"
                     >
                       <a href="https://matrymonialne24.pl/kontakt/" target="_blank" rel="noopener noreferrer">
                         🏠 Zarezerwuj prywatną konsultację
