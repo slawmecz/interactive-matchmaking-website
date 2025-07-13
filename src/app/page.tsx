@@ -477,7 +477,7 @@ export default function Home() {
                       ease: "easeInOut"
                     }}
                   >
-                    <span className="block xl:hidden" style={{ transform: 'rotate(-90deg)' }}>🧲</span>
+                    <span className="block xl:hidden" style={{ transform: 'rotate(0deg)' }}>🧲</span>
                     <span className="hidden xl:block" style={{ transform: 'rotate(270deg)' }}>🧲</span>
                   </motion.div>
                   
