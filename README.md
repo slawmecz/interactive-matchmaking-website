@@ -13,8 +13,13 @@ A story-driven landing page for Biuro Matrymonialne Magnes (Magnes Matrimonial A
 
 ## Run locally
 
+```
 npm install
+```
+
+```
 npm run dev
+```
 
 Visit `http://localhost:3000`
 
