@@ -477,8 +477,8 @@ export default function Home() {
                       ease: "easeInOut"
                     }}
                   >
-                    <span className="block lg:hidden" style={{ transform: 'rotate(-90deg)' }}>🧲</span>
-                    <span className="hidden lg:block" style={{ transform: 'rotate(270deg)' }}>🧲</span>
+                    <span className="block xl:hidden" style={{ transform: 'rotate(-90deg)' }}>🧲</span>
+                    <span className="hidden xl:block" style={{ transform: 'rotate(270deg)' }}>🧲</span>
                   </motion.div>
                   
                   {/* Attracted Hearts */}
