@@ -466,7 +466,7 @@ export default function Home() {
                 >
                   {/* Magnet */}
                   <motion.div
-                    className="absolute bottom-1 left-8 text-5xl -rotate-90 md:rotate-[270deg]"
+                    className="absolute bottom-1 left-8 text-5xl"
                     animate={{ 
                       y: [0, -5, 0],
                       rotate: [0, 2, -2, 0]
@@ -477,7 +477,8 @@ export default function Home() {
                       ease: "easeInOut"
                     }}
                   >
-                    🧲
+                    <span className="block md:hidden" style={{ transform: 'rotate(-90deg)' }}>🧲</span>
+                    <span className="hidden md:block" style={{ transform: 'rotate(270deg)' }}>🧲</span>
                   </motion.div>
                   
                   {/* Attracted Hearts */}
