@@ -34,27 +34,33 @@ const storySteps: StoryStep[] = [
   },
   {
     id: 2,
-    title: "Czas jest po\u00A0Twojej stronie",
-    content: "Nie musisz się spieszyć. Mamy dla Ciebie 12\u00A0miesięcy aktywnego przedstawiania idealnych dopasowań – zgodnych z\u00A0Twoimi preferencjami.",
-    options: ["➡️ Poznaj sposób działania Biura"]
-  },
-        {
-    id: 3,
     title: "Odwracamy role – to\u00A0Ty wybierasz",
     content: "To Ty decydujesz, z\u00A0kim się\u00A0spotkasz. Nie jesteś wybierany – Ty\u00A0wybierasz. Masz pierwszeństwo względem Klientów z\u00A0innymi pakietami.",
     options: ["🎯 Ja wybieram", "👤 Wybieram i jestem wybierany"]
   },
         {
-    id: 4,
+    id: 3,
     title: "Właściciel biura – tylko dla\u00A0Ciebie",
     content: "Nie masz czasu? Właściciel biura przyjedzie do\u00A0Ciebie. Przedstawienie ofert, profesjonalna sesja zdjęciowa, rozmowa w\u00A0komfortowych warunkach – bez pośpiechu.",
     options: ["🏠 Spotkanie u\u00A0Ciebie", "🏢 Spotkanie w\u00A0siedzibie"]
   },
         {
-    id: 5,
+    id: 4,
     title: "Twoja oferta – widoczna i\u00A0skuteczna",
     content: "Twoje ogłoszenie może zostać wypromowane w\u00A0internecie, na\u00A0naszych kanałach społecznościowych. Zyskujesz zasięg i\u00A0zainteresowanie.",
     options: ["📱 Promuj w\u00A0social media", "🚫 Nie promuj w\u00A0social media", "⏳ Zdecyduj później"]
+  },
+        {
+    id: 5,
+    title: "Twoje bezpieczeństwo to priorytet",
+    content: "Każda osoba jest weryfikowana. Spotkania odbywają się w bezpiecznych warunkach. Twoje dane są chronione zgodnie z najwyższymi standardami.",
+    options: ["🛡️ To brzmi bezpiecznie"]
+  },
+        {
+    id: 6,
+    title: "Czas jest po\u00A0Twojej stronie",
+    content: "Nie musisz się spieszyć. Mamy dla Ciebie 12\u00A0miesięcy aktywnego przedstawiania idealnych dopasowań – zgodnych z\u00A0Twoimi preferencjami.",
+    options: ["➡️ Poznaj sposób działania Biura"]
   }
 ];
 
