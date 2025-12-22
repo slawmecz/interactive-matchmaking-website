@@ -506,9 +506,25 @@ export default function Home() {
                   transition={{ delay: 3, duration: 1 }}
                 >
                   {/* Magnet */}
+                  {/* Magnet - Mobile (270 degrees - pointing right) */}
                   <motion.div
-                    className="absolute bottom-1 left-8 text-5xl"
-                    style={{ transform: 'rotate(270deg)' }}
+                    className="absolute bottom-1 left-8 text-5xl md:hidden"
+                    animate={{ 
+                      y: [0, -5, 0],
+                      rotate: [270, 272, 268, 270]
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <span className="inline-block">🧲</span>
+                  </motion.div>
+                  
+                  {/* Magnet - Desktop (270 degrees) */}
+                  <motion.div
+                    className="absolute bottom-1 left-8 text-5xl hidden md:block"
                     animate={{ 
                       y: [0, -5, 0],
                       rotate: [270, 272, 268, 270]
