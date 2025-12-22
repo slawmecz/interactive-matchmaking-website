@@ -273,7 +273,7 @@ export default function Home() {
                         >
                                                      <Button
                              onClick={() => selectOption(option)}
-                             className="w-full max-w-md mx-auto h-16 md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-4 whitespace-pre-line"
+                             className="w-full max-w-md mx-auto h-20 md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-4 whitespace-pre-line py-3"
                            >
                             {option}
                           </Button>
