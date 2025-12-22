@@ -78,7 +78,7 @@ const benefits = [
 
 const links = [
   { title: "Strona główna", url: "https://matrymonialne24.pl/" },
-  { title: "Nasze pary", url: "https://matrymonialne24.pl/pary/" },
+  { title: "Nasze pary", url: "https://matrymonialne24.pl/skojarzone-pary/" },
   { title: "Wydarzenia", url: "https://matrymonialne24.pl/wydarzenia/" },
   { title: "Cennik", url: "https://matrymonialne24.pl/cennik/" },
   { title: "Promocje", url: "https://matrymonialne24.pl/promocje/" },
@@ -413,9 +413,8 @@ export default function Home() {
                       asChild
                       className="w-full h-20 md:h-20 text-lg md:text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-xl px-4"
                     >
-                      <a href="https://matrymonialne24.pl/ankieta/" target="_blank" rel="noopener noreferrer" className="flex flex-col md:flex-row md:items-center md:justify-center">
-                        <span>🔐 Rozpocznij z Pakietem</span>
-                        <span className="md:ml-2">Najkorzystniejszym</span>
+                      <a href="https://matrymonialne24.pl/ankieta/" target="_blank" rel="noopener noreferrer" className="flex flex-col md:flex-row md:items-center md:justify-center text-center">
+                        <span className="whitespace-pre-line md:whitespace-normal">🔐 Rozpocznij z Pakietem{"\n"}Najkorzystniejszym</span>
                       </a>
                     </Button>
                   </motion.div>
@@ -428,9 +427,8 @@ export default function Home() {
                       variant="outline" 
                       className="w-full h-20 md:h-20 text-lg md:text-xl font-bold border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-4"
                     >
-                      <a href="tel:+48600434700" className="flex flex-col md:flex-row md:items-center md:justify-center">
-                        <span>📅 Umów spotkanie:</span>
-                        <span className="md:ml-2">+48 600 434 700</span>
+                      <a href="tel:+48600434700" className="flex flex-col md:flex-row md:items-center md:justify-center text-center">
+                        <span className="whitespace-pre-line md:whitespace-normal">📅 Umów spotkanie:{"\n"}+48 600 434 700</span>
                       </a>
                     </Button>
                   </motion.div>
