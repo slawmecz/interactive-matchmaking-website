@@ -148,49 +148,62 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 relative z-10">
         {/* Header with Logo Area */}
         <motion.div 
-          className="text-center mb-8"
+          className="mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex items-center justify-center mb-4">
+          {/* Header with logo and SVGs - same line on desktop, stacked on mobile */}
+          <div className="flex flex-col md:flex-row items-center justify-center lg:justify-between gap-4 mb-4 px-4 lg:px-28 mx-auto max-w-full">
+            {/* Logo - first on mobile, center on desktop */}
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="relative"
+              className="relative order-1 md:order-2"
             >
-        <Image
+              <Image
                 src="/Logo.svg"
                 alt="Biuro Matrymonialne Magnes Logo"
                 width={350}
                 height={88}
-                className="h-16 md:h-20 lg:h-24 w-auto"
-          priority
-        />
-              {/* Beating slice element on the logo */}
-              <motion.div
-                className="absolute -top-2 -right-2"
-                animate={{ 
-                  scale: [1, 1.3, 1],
-                  rotate: [0, 10, -10, 0]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity,
-                  delay: 1
-                }}
-          >
-            <Image
-                  src="/slice1.svg"
-                  alt="Heart slice"
-                  width={24}
-                  height={24}
-                  className="opacity-80"
-                />
-              </motion.div>
+                className="h-16 sm:h-20 md:h-20 lg:h-24 w-auto"
+                style={{ minHeight: '64px', minWidth: '200px' }}
+                priority
+              />
             </motion.div>
+            
+            {/* Phone number - right below logo on mobile, hidden on desktop */}
+            <p className="text-base text-gray-600 font-medium text-center order-2 md:hidden mt-2">
+              <span className="mr-8">+48 600 434 700</span>
+              <span>Zasięg ogólnopolski</span>
+            </p>
+            
+            {/* Container for SVGs - horizontal on mobile, separate on desktop */}
+            <div className="flex flex-row justify-center items-center gap-4 order-3 md:contents w-full md:w-auto">
+              {/* Satysfakcja - smaller on mobile, left on desktop */}
+              <Image
+                src="/satysfakcja.svg"
+                alt="Satysfakcja"
+                width={200}
+                height={60}
+                className="w-[140px] md:w-[200px] h-auto md:order-1"
+              />
+              
+              {/* Lata istnienia - smaller on mobile, right on desktop */}
+              <Image
+                src="/lata-istnienia.svg"
+                alt="Lata istnienia"
+                width={200}
+                height={60}
+                className="w-[140px] md:w-[200px] h-auto md:order-3"
+              />
+            </div>
           </div>
-          <p className="text-xl text-gray-600 font-medium">22 lata doświadczenia w łączeniu serc</p>
+          {/* Phone number - shown on desktop only */}
+          <p className="text-xl text-gray-600 font-medium text-center -mt-12 hidden md:block">
+            <span className="mr-8">+48 600 434 700</span>
+            <span>Zasięg ogólnopolski</span>
+          </p>
         </motion.div>
 
         {!showFinal ? (
@@ -541,17 +554,27 @@ export default function Home() {
                   transition={{ delay: 1 }}
                 >
                   <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-shrink-0">
                       <Phone className="text-purple-600" size={24} />
-                      <span className="text-xl font-bold text-purple-800">+48 600 434 700</span>
+                      <span className="text-xl font-bold text-purple-800 whitespace-nowrap">+48 600 434 700</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock className="text-purple-600" size={24} />
-                      <span className="text-lg text-purple-700">22 lata doświadczenia</span>
+                      <span className="text-lg text-purple-700">22 lata doświadczenia <span className="whitespace-nowrap">w łączeniu serc</span></span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="text-purple-600" size={24} />
                       <span className="text-lg text-purple-700">Setki udanych związków</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src="/map-of-poland-clip-art-5251161/Map_Of_Poland_clip_art.svg"
+                        alt="Mapa Polski"
+                        width={32}
+                        height={48}
+                        className="opacity-100 brightness-75"
+                      />
+                      <span className="text-lg text-purple-700">Zasięg ogólnopolski</span>
                     </div>
                   </div>
                                  </motion.div>
