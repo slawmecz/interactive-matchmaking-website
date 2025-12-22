@@ -22,27 +22,27 @@ const storySteps: StoryStep[] = [
   {
     id: 0,
     title: "Wyobraź sobie...",
-    content: "...że wybieranie partnera życiowego mogłoby być przygodą pełną komfortu, anonimowości i\u00A0wyboru?",
+    content: "...że wybieranie partnera życiowego mogłoby być przygodą pełną komfortu, anonimowości i\u00A0wyboru.",
     subtitle: "To nie bajka - to\u00A0Biuro Matrymonialne Magnes",
-    options: ["🔍 Rozpocznij swoją drogę"]
+    options: ["🔍 Rozpocznij swoją drogę wybierając\nnajkorzystniejszy pakiet usług"]
   },
   {
     id: 1,
-    title: "To Ty wybierasz sposób działania",
+    title: "Dyskrekcja na najwyższym poziomie",
     content: "Jesteś osobą publiczną? Szanujemy Twoją prywatność. U\u00A0nas nie musisz przekazywać zdjęcia – wszystko odbywa się\u00A0za\u00A0każdorazową Twoją zgodą.",
-    options: ["🌫️ Zachowaj anonimowość", "📸 Pokaż siebie tylko, gdy chcesz", "⏳ Zdecyduj później"]
+    options: ["🌫️ Zachowaj pełną anonimowość", "📸 Pokaż siebie tylko, gdy\u00A0chcesz", "⏳ Zdecyduj później"]
   },
   {
     id: 2,
     title: "Odwracamy role – to\u00A0Ty wybierasz",
-    content: "To Ty decydujesz, z\u00A0kim się\u00A0spotkasz. Nie jesteś wybierany – Ty\u00A0wybierasz. Masz pierwszeństwo względem Klientów z\u00A0innymi pakietami.",
-    options: ["🎯 Ja wybieram", "👤 Wybieram i jestem wybierany"]
+    content: "Masz wpływ z\u00A0kim\u00A0się\u00A0spotkasz w\u00A0pierwszej kolejnosci. To\u00A0Ty\u00A0decydujesz, kto ci się bardziej podoba. Nie jesteś wybierany, Ty wybierasz.",
+    options: ["🎯 Ja wybieram", "👤 Wybieram i jestem wybierany", "⏳ Zdecyduj później"]
   },
         {
     id: 3,
-    title: "Właściciel biura – tylko dla\u00A0Ciebie",
+    title: "Bezpośredni kontakt z\u00A0właścicielem biura",
     content: "Nie masz czasu? Właściciel biura przyjedzie do\u00A0Ciebie. Przedstawienie ofert, profesjonalna sesja zdjęciowa, rozmowa w\u00A0komfortowych warunkach – bez pośpiechu.",
-    options: ["🏠 Spotkanie u\u00A0Ciebie", "🏢 Spotkanie w\u00A0siedzibie"]
+    options: ["🏠 Spotkanie u\u00A0Ciebie", "🏢 Spotkanie w\u00A0siedzibie", "⏳ Zdecyduj później"]
   },
         {
     id: 4,
@@ -52,14 +52,14 @@ const storySteps: StoryStep[] = [
   },
         {
     id: 5,
-    title: "Twoje bezpieczeństwo to priorytet",
-    content: "Każda osoba jest weryfikowana. Spotkania odbywają się w bezpiecznych warunkach. Twoje dane są chronione zgodnie z najwyższymi standardami.",
-    options: ["🛡️ To brzmi bezpiecznie"]
+    title: "Dowiadujesz się pierwszy o\u00A0nowo zapisanej osobie",
+    content: "Pojawił się ktoś, kto spełnia Twoje oczekiwania? Powiadomymi Cię\u00A0niezwłocznie! Masz pierwszeńswto przed\u00A0klientami z\u00A0niższymi pakietami usług.",
+    options: ["🏃 Zależy mi na szybkości", "🤔 Stawiam na rozwagę", "⏳ Zdecyduj później"]
   },
         {
     id: 6,
     title: "Czas jest po\u00A0Twojej stronie",
-    content: "Nie musisz się spieszyć. Mamy dla Ciebie 12\u00A0miesięcy aktywnego przedstawiania idealnych dopasowań – zgodnych z\u00A0Twoimi preferencjami.",
+    content: "Mamy dla\u00A0Ciebie aż\u00A012\u00A0miesięcy aktywnego przedstawiania fotoofert zgodnych z Twoimi preferencjami. Chcesz poznać kogoś szybciej? Postaramy się, abyś jak najkrócej korzystał z\u00A0naszych usług!",
     options: ["➡️ Poznaj sposób działania Biura"]
   }
 ];
@@ -95,6 +95,14 @@ export default function Home() {
       setCurrentStep(currentStep + 1);
     } else {
       setShowFinal(true);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+      // Remove the last selected option when going back
+      setSelectedOptions(selectedOptions.slice(0, -1));
     }
   };
 
@@ -216,7 +224,7 @@ export default function Home() {
               transition={{ delay: 0.5 }}
             >
               <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-medium text-gray-600">Krok {currentStep + 1} z {storySteps.length}</span>
+                <span className="text-sm font-medium text-gray-600">Korzyści {currentStep + 1} z {storySteps.length}</span>
                 <Badge variant="outline" className="bg-white">
                   {Math.round(progress)}% ukończone
                 </Badge>
@@ -259,12 +267,28 @@ export default function Home() {
                         >
                                                      <Button
                              onClick={() => selectOption(option)}
-                             className="w-full max-w-md mx-auto h-16 md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-4"
+                             className="w-full max-w-md mx-auto h-16 md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-4 whitespace-pre-line"
                            >
                             {option}
                           </Button>
                         </motion.div>
                       ))}
+                      {/* Cofnij button - show only if not first step */}
+                      {currentStep > 0 && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.3 + (storySteps[currentStep].options?.length || 0) * 0.1 }}
+                        >
+                          <Button
+                            onClick={prevStep}
+                            variant="outline"
+                            className="w-full max-w-md mx-auto h-14 md:h-16 text-base md:text-lg font-semibold border-2 border-gray-400 text-gray-700 hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-md touch-manipulation px-4 mt-4"
+                          >
+                            ← Cofnij
+                          </Button>
+                        </motion.div>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
