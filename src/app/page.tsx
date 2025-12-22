@@ -519,7 +519,7 @@ export default function Home() {
                       ease: "easeInOut"
                     }}
                   >
-                    <span className="inline-block" style={{ transform: 'rotate(90deg)' }}>🧲</span>
+                    <span className="inline-block" style={{ transform: 'rotate(0deg)' }}>🧲</span>
                   </motion.div>
                   
                   {/* Magnet - Desktop (270 degrees) */}
