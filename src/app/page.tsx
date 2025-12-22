@@ -508,9 +508,10 @@ export default function Home() {
                   {/* Magnet */}
                   <motion.div
                     className="absolute bottom-1 left-8 text-5xl"
+                    style={{ transform: 'rotate(270deg)' }}
                     animate={{ 
                       y: [0, -5, 0],
-                      rotate: [0, 2, -2, 0]
+                      rotate: [270, 272, 268, 270]
                     }}
                     transition={{ 
                       duration: 3, 
@@ -518,7 +519,7 @@ export default function Home() {
                       ease: "easeInOut"
                     }}
                   >
-                    <span className="inline-block" style={{ transform: 'rotate(270deg)' }}>🧲</span>
+                    <span className="inline-block">🧲</span>
                   </motion.div>
                   
                   {/* Attracted Hearts */}
