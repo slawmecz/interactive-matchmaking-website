@@ -117,16 +117,22 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
       {/* Floating Hearts and Brand Elements Animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(9)].map((_, i) => {
+        {[...Array(18)].map((_, i) => {
           const isSlice = i % 3 === 0; // Every 3rd element uses slice1.svg
+          // Pre-shuffled order for random-looking distribution across screen
+          const shuffledIndices = [12, 3, 16, 7, 1, 14, 9, 5, 17, 2, 11, 6, 15, 0, 10, 8, 13, 4];
+          const xPercent = 5 + (shuffledIndices[i] / 17) * 90;
+          const baseX = `calc(${xPercent}vw - 15px)`; // Center the heart icon
+          
           return (
             <motion.div
               key={i}
               className="absolute opacity-15"
-              initial={{ y: "110vh", x: 100 + i * 120 }}
+              initial={{ y: "150vh", left: baseX, opacity: 0 }}
               animate={{
-                y: "-10vh", 
-                x: 50 + i * 120,
+                y: "-20vh", 
+                left: baseX,
+                opacity: [0, 0.15, 0.15, 0],
                 rotate: [0, 360],
                 scale: [1, 1.2, 1]
               }}
@@ -141,12 +147,12 @@ export default function Home() {
                 <Image
                   src="/slice1.svg"
                   alt="Heart element"
-                  width={30}
-                  height={30}
+                  width={36}
+                  height={36}
                   className="text-pink-400"
                 />
               ) : (
-                <Heart size={24} fill="currentColor" className="text-pink-400" />
+                <Heart size={30} fill="currentColor" className="text-pink-400" />
               )}
             </motion.div>
           );
