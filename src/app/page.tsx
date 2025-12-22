@@ -512,8 +512,7 @@ export default function Home() {
                       ease: "easeInOut"
                     }}
                   >
-                    <span className="block xl:hidden" style={{ transform: 'rotate(0deg)' }}>🧲</span>
-                    <span className="hidden xl:block" style={{ transform: 'rotate(270deg)' }}>🧲</span>
+                    <span className="inline-block" style={{ transform: 'rotate(270deg)' }}>🧲</span>
                   </motion.div>
                   
                   {/* Attracted Hearts */}
@@ -575,14 +574,14 @@ export default function Home() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
                 >
-                  <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-                    <div className="flex items-center gap-2 flex-shrink-0">
+                  <div className="flex flex-col md:flex-row justify-center items-center gap-6 w-full">
+                    <div className="flex items-center justify-center gap-2 flex-shrink-0 w-full md:w-auto">
                       <Phone className="text-purple-600" size={24} />
                       <span className="text-xl font-bold text-purple-800 whitespace-nowrap">+48 600 434 700</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="text-purple-600" size={24} />
-                      <span className="text-lg text-purple-700">22 lata doświadczenia <span className="whitespace-nowrap">w łączeniu serc</span></span>
+                    <div className="flex items-center justify-center md:justify-start gap-2">
+                      <Clock className="text-purple-600 flex-shrink-0 ml-2 md:ml-0" size={24} />
+                      <span className="text-lg text-purple-700 max-w-[240px] md:max-w-[210px]">22 lata doświadczenia <span className="whitespace-nowrap">w łączeniu serc</span></span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="text-purple-600" size={24} />
