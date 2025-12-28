@@ -35,8 +35,8 @@ const storySteps: StoryStep[] = [
   {
     id: 2,
     title: "Odwracamy role – to\u00A0Ty wybierasz",
-    content: "Masz wpływ z\u00A0kim\u00A0się\u00A0spotkasz w\u00A0pierwszej kolejności. To\u00A0Ty\u00A0decydujesz, kto Ci się bardziej podoba. \nNie jesteś wybierany, Ty wybierasz.",
-    options: ["🎯 Ja wybieram", "👤 Wybieram i jestem wybierany", "⏳ Zdecyduj później"]
+    content: "Masz wpływ z\u00A0kim\u00A0się\u00A0spotkasz w\u00A0pierwszej kolejności. To\u00A0Ty\u00A0decydujesz, kto\u00A0Ci się bardziej podoba. \nNie jesteś wybierany, Ty\u00A0wybierasz.",
+    options: ["🎯 Ja wybieram", "👤 Wybieram i\u00A0jestem wybierany", "⏳ Zdecyduj później"]
   },
         {
     id: 3,
@@ -54,12 +54,12 @@ const storySteps: StoryStep[] = [
     id: 5,
     title: "Dowiadujesz się pierwszy o\u00A0nowo zapisanej osobie",
     content: "Pojawił się ktoś, kto spełnia Twoje oczekiwania? Powiadomimy Cię\u00A0niezwłocznie! Masz pierwszeństwo przed\u00A0klientami z\u00A0niższymi pakietami usług.",
-    options: ["🏃 Zależy mi na szybkości", "🤔 Stawiam na rozwagę", "⏳ Zdecyduj później"]
+    options: ["🏃 Zależy mi na\u00A0szybkości", "🤔 Stawiam na\u00A0rozwagę", "⏳ Zdecyduj później"]
   },
         {
     id: 6,
     title: "Czas jest po\u00A0Twojej stronie",
-    content: "Mamy dla\u00A0Ciebie aż\u00A012\u00A0miesięcy aktywnego przedstawiania fotoofert zgodnych z Twoimi preferencjami. Chcesz poznać kogoś szybciej? Postaramy się, abyś jak najkrócej korzystał z\u00A0naszych usług!",
+    content: "Mamy dla\u00A0Ciebie aż\u00A012\u00A0miesięcy aktywnego przedstawiania fotoofert zgodnych z\u00A0Twoimi preferencjami. Chcesz poznać kogoś szybciej? Postaramy się, abyś jak najkrócej korzystał z\u00A0naszych usług!",
     options: ["➡️ Poznaj sposób działania Biura"]
   }
 ];
@@ -69,7 +69,7 @@ const benefits = [
   "12 miesięcy ofert szytych na\u00A0miarę", 
   "Ty wybierasz – masz kontrolę",
   "Pierwszeństwo w\u00A0dostępie do\u00A0nowych osób",
-  "Organizacja randek na miejscu w biurze",
+  "Organizacja randek na\u00A0miejscu w\u00A0biurze",
   "Wypromowanie ogłoszenia",
   "Bezpośredni kontakt z\u00A0właścicielem",
   "Możliwość przedstawienia fotoofert u\u00A0Ciebie w\u00A0domu",
@@ -82,7 +82,7 @@ const links = [
   { title: "Wydarzenia", url: "https://matrymonialne24.pl/wydarzenia/" },
   { title: "Cennik", url: "https://matrymonialne24.pl/cennik/" },
   { title: "Promocje", url: "https://matrymonialne24.pl/promocje/" },
-  { title: "Dołącz do nas", url: "https://matrymonialne24.pl/ankieta/" }
+  { title: "Dołącz do\u00A0nas", url: "https://matrymonialne24.pl/ankieta/" }
 ];
 
 export default function Home() {
@@ -266,7 +266,13 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="text-center">
                     <div className="space-y-4">
-                      {storySteps[currentStep].options?.map((option, index) => (
+                      {storySteps[currentStep].options?.map((option, index) => {
+                        // Extract emoji and text separately
+                        const emojiMatch = option.match(/^(\p{Emoji}+)/u);
+                        const emoji = emojiMatch ? emojiMatch[1] : '';
+                        const text = emoji ? option.slice(emoji.length).trim() : option;
+                        
+                        return (
                         <motion.div
                           key={index}
                           initial={{ opacity: 0, y: 20 }}
@@ -277,10 +283,12 @@ export default function Home() {
                              onClick={() => selectOption(option)}
                              className="w-full max-w-md mx-auto h-20 md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-4 whitespace-pre-line py-3"
                            >
-                            {option}
+                            {emoji && <span className="text-2xl md:text-xl lg:text-2xl mr-2">{emoji}</span>}
+                            {text}
                           </Button>
                         </motion.div>
-                      ))}
+                        );
+                      })}
                       {/* Cofnij button - show only if not first step */}
                       {currentStep > 0 && (
                         <motion.div
@@ -392,7 +400,7 @@ export default function Home() {
                   {["💕 Miłość", "🤝 Zaufanie", "⭐ Doświadczenie", "😊 Szczęście", "💑 Partnerstwo", "🌟 Harmonia"].map((word, index) => (
                     <motion.div
                       key={word}
-                      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-purple-600 font-bold text-lg text-center"
+                      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-purple-600 font-bold text-lg text-center whitespace-nowrap"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ 
                         opacity: [0, 1, 1, 0],
@@ -436,7 +444,10 @@ export default function Home() {
                       className="w-full h-20 md:h-20 text-lg md:text-xl font-bold border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-4"
                     >
                       <a href="tel:+48600434700" className="flex flex-col md:flex-row md:items-center md:justify-center text-center">
-                        <span className="whitespace-pre-line md:whitespace-normal flex items-center gap-2 justify-center">📅 Umów spotkanie:{"\n"}<Phone className="inline" size={18} /> 600 434 700</span>
+                        <span className="whitespace-nowrap md:whitespace-normal flex items-center gap-2 justify-center">
+                          <span className="md:hidden">📅 Umów spotkanie: <Phone className="inline" size={18} /> 600 434 700</span>
+                          <span className="hidden md:inline whitespace-pre-line">📅 Umów spotkanie:{"\n"}<Phone className="inline" size={18} /> 600 434 700</span>
+                        </span>
                       </a>
                     </Button>
                   </motion.div>
