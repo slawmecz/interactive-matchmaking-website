@@ -307,6 +307,144 @@ export default function Home() {
                       )}
                     </div>
                   </CardContent>
+                  
+                  {/* Magnet Attracts Hearts Animation - For All Steps */}
+                  <motion.div 
+                    className="relative overflow-hidden h-24 pb-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 1 }}
+                  >
+                    {/* Magnet - Mobile (pointing right) */}
+                    <motion.div
+                      className="absolute bottom-1 left-8 text-5xl lg:hidden"
+                      animate={{ 
+                        y: [0, -5, 0],
+                        rotate: [0, 2, -2, 0]
+                      }}
+                      transition={{ 
+                        duration: 3, 
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <span className="inline-block" style={{ transform: 'rotate(0deg)' }}>🧲</span>
+                    </motion.div>
+                    
+                    {/* Magnet - Desktop (270 degrees) */}
+                    <motion.div
+                      className="absolute bottom-1 left-8 text-5xl hidden lg:block"
+                      animate={{ 
+                        y: [0, -5, 0],
+                        rotate: [270, 272, 268, 270]
+                      }}
+                      transition={{ 
+                        duration: 3, 
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <span className="inline-block">🧲</span>
+                    </motion.div>
+                    
+                    {/* Attracted Hearts - Mobile */}
+                    {[...Array(4)].map((_, i) => {
+                      const yOffsets = [-15, 10, -5, 15];
+                      return (
+                        <motion.div
+                          key={`mobile-${i}`}
+                          className="absolute bottom-4 text-pink-500 lg:hidden"
+                          initial={{ 
+                            x: `${100 + i * 20}vw`,
+                            y: yOffsets[i]
+                          }}
+                          animate={{ 
+                            x: "4rem",
+                            y: [yOffsets[i], yOffsets[i] - 10, yOffsets[i]],
+                            rotate: [0, 360]
+                          }}
+                          transition={{ 
+                            x: {
+                              duration: 4 + i * 0.5,
+                              repeat: Infinity,
+                              ease: "easeOut",
+                              delay: i * 1.5
+                            },
+                            y: {
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            },
+                            rotate: {
+                              duration: 3,
+                              repeat: Infinity,
+                              ease: "linear"
+                            }
+                          }}
+                        >
+                          {i % 2 === 0 ? (
+                            <Heart size={20} fill="currentColor" />
+                          ) : (
+                            <Image
+                              src="/slice1.svg"
+                              alt="Heart element"
+                              width={20}
+                              height={20}
+                            />
+                          )}
+                        </motion.div>
+                      );
+                    })}
+                    
+                    {/* Attracted Hearts - Desktop (slower) */}
+                    {[...Array(4)].map((_, i) => {
+                      const yOffsets = [-15, 10, -5, 15];
+                      return (
+                        <motion.div
+                          key={`desktop-${i}`}
+                          className="absolute bottom-4 text-pink-500 hidden lg:block"
+                          initial={{ 
+                            x: `${100 + i * 20}vw`,
+                            y: yOffsets[i]
+                          }}
+                          animate={{ 
+                            x: "4rem",
+                            y: [yOffsets[i], yOffsets[i] - 10, yOffsets[i]],
+                            rotate: [0, 360]
+                          }}
+                          transition={{ 
+                            x: {
+                              duration: 6 + i * 0.8,
+                              repeat: Infinity,
+                              ease: "easeOut",
+                              delay: i * 1.5
+                            },
+                            y: {
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            },
+                            rotate: {
+                              duration: 3,
+                              repeat: Infinity,
+                              ease: "linear"
+                            }
+                          }}
+                        >
+                          {i % 2 === 0 ? (
+                            <Heart size={20} fill="currentColor" />
+                          ) : (
+                            <Image
+                              src="/slice1.svg"
+                              alt="Heart element"
+                              width={20}
+                              height={20}
+                            />
+                          )}
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
                 </Card>
               </motion.div>
             </AnimatePresence>
@@ -427,7 +565,7 @@ export default function Home() {
                   >
                     <Button 
                       asChild
-                      className="w-full h-20 md:h-20 text-lg md:text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-xl px-4"
+                      className="w-full h-20 md:h-20 text-base md:text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-xl px-2 md:px-4"
                     >
                       <a href="https://matrymonialne24.pl/ankieta/" target="_blank" rel="noopener noreferrer" className="flex flex-col md:flex-row md:items-center md:justify-center text-center">
                         <span className="whitespace-pre-line md:whitespace-normal">🔐 Rozpocznij z Pakietem{"\n"}Najkorzystniejszym</span>
@@ -444,9 +582,9 @@ export default function Home() {
                       className="w-full h-20 md:h-20 text-lg md:text-xl font-bold border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-4"
                     >
                       <a href="tel:+48600434700" className="flex flex-col md:flex-row md:items-center md:justify-center text-center">
-                        <span className="whitespace-nowrap md:whitespace-normal flex items-center gap-2 justify-center">
-                          <span className="md:hidden">📅 Umów spotkanie: <Phone className="inline" size={18} /> 600 434 700</span>
-                          <span className="hidden md:inline whitespace-pre-line">📅 Umów spotkanie:{"\n"}<Phone className="inline" size={18} /> 600 434 700</span>
+                        <span className="flex items-center gap-2 justify-center">
+                          <span className="md:hidden whitespace-pre-line">📅 Umów na spotkanie:{"\n"}<Phone className="inline" size={18} /> 600 434 700</span>
+                          <span className="hidden md:inline whitespace-nowrap">📅 Umów na spotkanie: <Phone className="inline" size={18} /> 600 434 700</span>
                         </span>
                       </a>
                     </Button>
@@ -462,7 +600,7 @@ export default function Home() {
                     <Button 
                       asChild
                       variant="secondary" 
-                      className="w-full h-14 md:h-16 text-base md:text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg px-4"
+                      className="w-full h-14 md:h-20 text-base md:text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg px-4"
                     >
                       <a href="https://matrymonialne24.pl/" target="_blank" rel="noopener noreferrer">
                         💕 Zobacz przykłady ofert
@@ -476,7 +614,7 @@ export default function Home() {
                     <Button 
                       asChild
                       variant="outline" 
-                      className="w-full h-14 md:h-16 text-base md:text-lg font-bold border-2 border-orange-400 text-orange-600 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100 shadow-lg px-4"
+                      className="w-full h-14 md:h-20 text-base md:text-lg font-bold border-2 border-orange-400 text-orange-600 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100 shadow-lg px-4"
                     >
                       <a href="https://matrymonialne24.pl/kontakt/" target="_blank" rel="noopener noreferrer">
                         🏠 Zarezerwuj prywatną konsultację
@@ -551,13 +689,13 @@ export default function Home() {
                     <span className="inline-block">🧲</span>
                   </motion.div>
                   
-                  {/* Attracted Hearts */}
+                  {/* Attracted Hearts - Mobile */}
                   {[...Array(4)].map((_, i) => {
                     const yOffsets = [-15, 10, -5, 15];
                     return (
                       <motion.div
-                        key={i}
-                        className="absolute bottom-4 text-pink-500"
+                        key={`final-mobile-${i}`}
+                        className="absolute bottom-4 text-pink-500 lg:hidden"
                         initial={{ 
                           x: `${100 + i * 20}vw`,
                           y: yOffsets[i]
@@ -589,7 +727,56 @@ export default function Home() {
                         {i % 2 === 0 ? (
                           <Heart size={20} fill="currentColor" />
                         ) : (
-          <Image
+                          <Image
+                            src="/slice1.svg"
+                            alt="Heart element"
+                            width={20}
+                            height={20}
+                          />
+                        )}
+                      </motion.div>
+                    );
+                  })}
+                  
+                  {/* Attracted Hearts - Desktop (slower for final page) */}
+                  {[...Array(4)].map((_, i) => {
+                    const yOffsets = [-15, 10, -5, 15];
+                    return (
+                      <motion.div
+                        key={`final-desktop-${i}`}
+                        className="absolute bottom-4 text-pink-500 hidden lg:block"
+                        initial={{ 
+                          x: `${100 + i * 20}vw`,
+                          y: yOffsets[i]
+                        }}
+                        animate={{ 
+                          x: "4rem",
+                          y: [yOffsets[i], yOffsets[i] - 10, yOffsets[i]],
+                          rotate: [0, 360]
+                        }}
+                        transition={{ 
+                          x: {
+                            duration: 8 + i * 1.0,
+                            repeat: Infinity,
+                            ease: "easeOut",
+                            delay: i * 1.5
+                          },
+                          y: {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          },
+                          rotate: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }
+                        }}
+                      >
+                        {i % 2 === 0 ? (
+                          <Heart size={20} fill="currentColor" />
+                        ) : (
+                          <Image
                             src="/slice1.svg"
                             alt="Heart element"
                             width={20}
