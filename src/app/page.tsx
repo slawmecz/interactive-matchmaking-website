@@ -22,20 +22,20 @@ const storySteps: StoryStep[] = [
   {
     id: 0,
     title: "Wyobraź sobie...",
-    content: "...że wybieranie partnera życiowego mogłoby być przygodą pełną komfortu, anonimowości i\u00A0wyboru.",
+    content: "...że wybieranie partnera życiowego może być przygodą pełną komfortu, anonimowości i\u00A0wyboru.",
     subtitle: "To nie bajka - to\u00A0Biuro Matrymonialne Magnes",
     options: ["🔍 Rozpocznij swoją drogę wybierając\nnajkorzystniejszy pakiet usług"]
   },
   {
     id: 1,
     title: "Dyskrekcja na najwyższym poziomie",
-    content: "Jesteś osobą publiczną? Szanujemy Twoją prywatność. U\u00A0nas nie musisz przekazywać zdjęcia – wszystko odbywa się\u00A0za\u00A0każdorazową Twoją zgodą.",
+    content: "Jesteś osobą publiczną? Szanujemy Twoją prywatność. U\u00A0nas nie musisz przekazywać zdjęcia \n– wszystko odbywa się\u00A0za\u00A0każdorazową Twoją zgodą.",
     options: ["🌫️ Zachowaj pełną anonimowość", "📸 Pokaż siebie tylko, gdy\u00A0chcesz", "⏳ Zdecyduj później"]
   },
   {
     id: 2,
     title: "Odwracamy role – to\u00A0Ty wybierasz",
-    content: "Masz wpływ z\u00A0kim\u00A0się\u00A0spotkasz w\u00A0pierwszej kolejnosci. To\u00A0Ty\u00A0decydujesz, kto ci się bardziej podoba. Nie jesteś wybierany, Ty wybierasz.",
+    content: "Masz wpływ z\u00A0kim\u00A0się\u00A0spotkasz w\u00A0pierwszej kolejności. To\u00A0Ty\u00A0decydujesz, kto Ci się bardziej podoba. \nNie jesteś wybierany, Ty wybierasz.",
     options: ["🎯 Ja wybieram", "👤 Wybieram i jestem wybierany", "⏳ Zdecyduj później"]
   },
         {
@@ -47,13 +47,13 @@ const storySteps: StoryStep[] = [
         {
     id: 4,
     title: "Twoja oferta – widoczna i\u00A0skuteczna",
-    content: "Twoje ogłoszenie może zostać wypromowane w\u00A0internecie, na\u00A0naszych kanałach społecznościowych. Zyskujesz zasięg i\u00A0zainteresowanie.",
+    content: "Twoje ogłoszenie może zostać wypromowane w\u00A0internecie, na\u00A0naszych kanałach społecznościowych. \nZyskujesz zasięg i\u00A0zainteresowanie.",
     options: ["📱 Promuj w\u00A0social media", "🚫 Nie promuj w\u00A0social media", "⏳ Zdecyduj później"]
   },
         {
     id: 5,
     title: "Dowiadujesz się pierwszy o\u00A0nowo zapisanej osobie",
-    content: "Pojawił się ktoś, kto spełnia Twoje oczekiwania? Powiadomymi Cię\u00A0niezwłocznie! Masz pierwszeńswto przed\u00A0klientami z\u00A0niższymi pakietami usług.",
+    content: "Pojawił się ktoś, kto spełnia Twoje oczekiwania? Powiadomimy Cię\u00A0niezwłocznie! Masz pierwszeństwo przed\u00A0klientami z\u00A0niższymi pakietami usług.",
     options: ["🏃 Zależy mi na szybkości", "🤔 Stawiam na rozwagę", "⏳ Zdecyduj później"]
   },
         {
@@ -69,16 +69,16 @@ const benefits = [
   "12 miesięcy ofert szytych na\u00A0miarę", 
   "Ty wybierasz – masz kontrolę",
   "Pierwszeństwo w\u00A0dostępie do\u00A0nowych osób",
-  "Profesjonalna sesja zdjęciowa",
+  "Organizacja randek na miejscu w biurze",
   "Wypromowanie ogłoszenia",
   "Bezpośredni kontakt z\u00A0właścicielem",
-  "Możliwość organizacji spotkań w\u00A0biurze lub u\u00A0Ciebie",
+  "Możliwość przedstawienia fotoofert u\u00A0Ciebie w\u00A0domu",
   "Widoczność Twojej oferty – do\u00A0skutku!"
 ];
 
 const links = [
-  { title: "Strona główna", url: "https://matrymonialne24.pl/" },
-  { title: "Nasze pary", url: "https://matrymonialne24.pl/skojarzone-pary/" },
+  { title: "Regulamin", url: "https://matrymonialne24.pl/regulamin/" },
+  { title: "Nasze sukcesy", url: "https://matrymonialne24.pl/skojarzone-pary/" },
   { title: "Wydarzenia", url: "https://matrymonialne24.pl/wydarzenia/" },
   { title: "Cennik", url: "https://matrymonialne24.pl/cennik/" },
   { title: "Promocje", url: "https://matrymonialne24.pl/promocje/" },
@@ -188,7 +188,8 @@ export default function Home() {
             
             {/* Phone number - right below logo on mobile, hidden on desktop */}
             <p className="text-base text-gray-600 font-medium text-center order-2 md:hidden mt-2">
-              <span className="mr-8">+48 600 434 700</span>
+              <Phone className="inline text-gray-600 mr-2 align-middle" size={18} />
+              <span className="mr-8">600 434 700</span>
               <span>Zasięg ogólnopolski</span>
             </p>
             
@@ -215,7 +216,8 @@ export default function Home() {
           </div>
           {/* Phone number - shown on desktop only */}
           <p className="text-xl text-gray-600 font-medium text-center -mt-12 hidden md:block">
-            <span className="mr-8">+48 600 434 700</span>
+            <Phone className="inline text-gray-600 mr-2 align-middle" size={20} />
+            <span className="mr-8">600 434 700</span>
             <span>Zasięg ogólnopolski</span>
           </p>
         </motion.div>
@@ -253,7 +255,7 @@ export default function Home() {
                     <CardTitle className="text-3xl md:text-4xl mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                       {storySteps[currentStep].title}
                     </CardTitle>
-                                         <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed font-medium">
+                                         <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed font-medium whitespace-pre-line">
                        {storySteps[currentStep].content}
                      </p>
                     {storySteps[currentStep].subtitle && (
@@ -434,7 +436,7 @@ export default function Home() {
                       className="w-full h-20 md:h-20 text-lg md:text-xl font-bold border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-4"
                     >
                       <a href="tel:+48600434700" className="flex flex-col md:flex-row md:items-center md:justify-center text-center">
-                        <span className="whitespace-pre-line md:whitespace-normal">📅 Umów spotkanie:{"\n"}+48 600 434 700</span>
+                        <span className="whitespace-pre-line md:whitespace-normal flex items-center gap-2 justify-center">📅 Umów spotkanie:{"\n"}<Phone className="inline" size={18} /> 600 434 700</span>
                       </a>
                     </Button>
                   </motion.div>
@@ -452,7 +454,7 @@ export default function Home() {
                       className="w-full h-14 md:h-16 text-base md:text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg px-4"
                     >
                       <a href="https://matrymonialne24.pl/" target="_blank" rel="noopener noreferrer">
-                        💕 Chcę zobaczyć przykłady ofert
+                        💕 Zobacz przykłady ofert
                       </a>
                     </Button>
                   </motion.div>
@@ -600,7 +602,7 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row justify-center items-center gap-6 w-full">
                     <div className="flex items-center justify-center gap-2 flex-shrink-0 w-full md:w-auto">
                       <Phone className="text-purple-600" size={24} />
-                      <span className="text-xl font-bold text-purple-800 whitespace-nowrap">+48 600 434 700</span>
+                      <span className="text-xl font-bold text-purple-800 whitespace-nowrap">600 434 700</span>
                     </div>
                     <div className="flex items-center justify-center md:justify-start gap-2">
                       <Clock className="text-purple-600 flex-shrink-0 ml-2 md:ml-0" size={24} />
