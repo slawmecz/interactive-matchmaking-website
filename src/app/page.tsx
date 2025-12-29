@@ -9,6 +9,9 @@ import { Badge } from "@/components/ui/badge";
 import { Heart, Phone, Clock, CheckCircle, Users } from "lucide-react";
 import Image from "next/image";
 
+// Base path for GitHub Pages
+const BASE_PATH = process.env.NODE_ENV === 'production' ? '/interactive-matchmaking-website' : '';
+
 interface StoryStep {
   id: number;
   title: string;
@@ -145,7 +148,7 @@ export default function Home() {
             >
               {isSlice ? (
                 <Image
-                  src="/slice1.svg"
+                  src={`${BASE_PATH}/slice1.svg`}
                   alt="Heart element"
                   width={36}
                   height={36}
@@ -176,7 +179,7 @@ export default function Home() {
               className="relative order-1 md:order-2"
             >
               <Image
-                src="/Logo.svg"
+                src={`${BASE_PATH}/Logo.svg`}
                 alt="Biuro Matrymonialne Magnes Logo"
                 width={350}
                 height={88}
@@ -197,7 +200,7 @@ export default function Home() {
             <div className="flex flex-row justify-center items-center gap-4 order-3 md:contents w-full md:w-auto">
               {/* Satysfakcja - smaller on mobile, left on desktop */}
               <Image
-                src="/satysfakcja.svg"
+                src={`${BASE_PATH}/satysfakcja.svg`}
                 alt="Satysfakcja"
                 width={200}
                 height={60}
@@ -206,7 +209,7 @@ export default function Home() {
               
               {/* Lata istnienia - smaller on mobile, right on desktop */}
               <Image
-                src="/lata-istnienia.svg"
+                src={`${BASE_PATH}/lata-istnienia.svg`}
                 alt="Lata istnienia"
                 width={200}
                 height={60}
@@ -386,7 +389,7 @@ export default function Home() {
                             <Heart size={20} fill="currentColor" />
                           ) : (
                             <Image
-                              src="/slice1.svg"
+                              src={`${BASE_PATH}/slice1.svg`}
                               alt="Heart element"
                               width={20}
                               height={20}
@@ -435,7 +438,7 @@ export default function Home() {
                             <Heart size={20} fill="currentColor" />
                           ) : (
                             <Image
-                              src="/slice1.svg"
+                              src={`${BASE_PATH}/slice1.svg`}
                               alt="Heart element"
                               width={20}
                               height={20}
@@ -473,7 +476,7 @@ export default function Home() {
                    className="mx-auto mb-4"
         >
           <Image
-                     src="/slice1.svg"
+                     src={`${BASE_PATH}/slice1.svg`}
                      alt="Heart element"
                      width={80}
                      height={80}
@@ -728,7 +731,7 @@ export default function Home() {
                           <Heart size={20} fill="currentColor" />
                         ) : (
                           <Image
-                            src="/slice1.svg"
+                            src={`${BASE_PATH}/slice1.svg`}
                             alt="Heart element"
                             width={20}
                             height={20}
@@ -777,7 +780,7 @@ export default function Home() {
                           <Heart size={20} fill="currentColor" />
                         ) : (
                           <Image
-                            src="/slice1.svg"
+                            src={`${BASE_PATH}/slice1.svg`}
                             alt="Heart element"
                             width={20}
                             height={20}
@@ -812,7 +815,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Image
-                        src="/map-of-poland-clip-art-5251161/Map_Of_Poland_clip_art.svg"
+                        src={`${BASE_PATH}/map-of-poland-clip-art-5251161/Map_Of_Poland_clip_art.svg`}
                         alt="Mapa Polski"
                         width={32}
                         height={48}
@@ -863,7 +866,7 @@ export default function Home() {
                }}
         >
           <Image
-                 src="/slice1.svg"
+                 src={`${BASE_PATH}/slice1.svg`}
                  alt="Heart accent"
             width={16}
             height={16}
