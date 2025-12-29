@@ -59,7 +59,7 @@ const storySteps: StoryStep[] = [
         {
     id: 6,
     title: "Czas jest po\u00A0Twojej stronie",
-    content: "Mamy dla\u00A0Ciebie aż\u00A012\u00A0miesięcy aktywnego przedstawiania fotoofert zgodnych z\u00A0Twoimi preferencjami. Chcesz poznać kogoś szybciej? Postaramy się, abyś jak najkrócej korzystał z\u00A0naszych usług!",
+    content: "Mamy dla\u00A0Ciebie aż\u00A012\u00A0miesięcy aktywnego przedstawiania fotoofert zgodnych z\u00A0Twoimi preferencjami. \nChcesz poznać kogoś szybciej? Postaramy się, \nabyś jak najkrócej korzystał z\u00A0naszych usług!",
     options: ["➡️ Poznaj sposób działania Biura"]
   }
 ];
@@ -78,7 +78,7 @@ const benefits = [
 
 const links = [
   { title: "Regulamin", url: "https://matrymonialne24.pl/regulamin/" },
-  { title: "Nasze sukcesy", url: "https://matrymonialne24.pl/skojarzone-pary/" },
+  { title: "Sukcesy", url: "https://matrymonialne24.pl/skojarzone-pary/" },
   { title: "Wydarzenia", url: "https://matrymonialne24.pl/wydarzenia/" },
   { title: "Cennik", url: "https://matrymonialne24.pl/cennik/" },
   { title: "Promocje", url: "https://matrymonialne24.pl/promocje/" },
@@ -603,7 +603,7 @@ export default function Home() {
                       className="w-full h-14 md:h-20 text-base md:text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg px-4"
                     >
                       <a href="https://matrymonialne24.pl/" target="_blank" rel="noopener noreferrer">
-                        💕 Zobacz przykłady ofert
+                        💕 Zobacz przykłady ofert matrymonialnych
                       </a>
                     </Button>
                   </motion.div>
@@ -851,7 +851,7 @@ export default function Home() {
              <Phone size={28} />
              {/* Small beating slice element */}
              <motion.div
-               className="absolute -top-1 -right-1"
+               className="absolute -top-1 -right-1 hidden md:block"
                animate={{ 
                  scale: [1, 1.4, 1],
                  rotate: [0, 15, -15, 0]
