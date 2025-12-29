@@ -9,8 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Heart, Phone, Clock, CheckCircle, Users } from "lucide-react";
 import Image from "next/image";
 
-// Base path for GitHub Pages
-const BASE_PATH = process.env.NODE_ENV === 'production' ? '/interactive-matchmaking-website' : '';
+// Base path - empty for custom domain
+const BASE_PATH = '';
 
 interface StoryStep {
   id: number;
