@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa. Rozpocznij swoją drogę do szczęścia już dziś!",
   keywords: "biuro matrymonialne, poszukiwanie partnera, randki, związki, miłość, Magnes, matrymonialne24",
   icons: {
-    icon: '/heart-favicon.svg',
-    shortcut: '/heart-favicon.svg',
-    apple: '/heart-favicon.svg',
+    icon: '/slice1.svg',
+    shortcut: '/slice1.svg',
+    apple: '/slice1.svg',
   },
   openGraph: {
     title: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",
