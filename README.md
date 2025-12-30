@@ -21,7 +21,7 @@ npm install
 npm run dev
 ```
 
-Visit `https://interactive-matchmaking-website.vercel.app/`
+Visit `https://swatanie.pl`
 
 ## Project Structure
 
