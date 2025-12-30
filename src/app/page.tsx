@@ -259,7 +259,14 @@ export default function Home() {
                       {storySteps[currentStep].title}
                     </CardTitle>
                                          <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed font-medium whitespace-pre-line">
-                       {storySteps[currentStep].content}
+                       {currentStep === 1 ? (
+                         <>
+                           <span className="md:hidden">{storySteps[currentStep].content.replace(/\n/, ' ')}</span>
+                           <span className="hidden md:inline">{storySteps[currentStep].content}</span>
+                         </>
+                       ) : (
+                         storySteps[currentStep].content
+                       )}
                      </p>
                     {storySteps[currentStep].subtitle && (
                       <p className="text-lg text-purple-600 font-semibold mt-4">
@@ -561,7 +568,7 @@ export default function Home() {
                 </motion.div>
 
                                  {/* Main CTAs */}
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="grid md:grid-cols-2 gap-6 mb-6 md:mb-8">
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -595,7 +602,7 @@ export default function Home() {
                 </div>
 
                 {/* Examples and Consultation CTAs */}
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
+                <div className="grid md:grid-cols-2 gap-6 md:gap-4 mb-8">
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -603,10 +610,10 @@ export default function Home() {
                     <Button 
                       asChild
                       variant="secondary" 
-                      className="w-full h-14 md:h-20 text-base md:text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg px-4"
+                      className="w-full h-20 md:h-20 text-base md:text-lg font-bold bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-300 text-purple-700 hover:from-pink-200 hover:to-purple-200 shadow-lg px-4"
                     >
-                      <a href="https://matrymonialne24.pl/" target="_blank" rel="noopener noreferrer">
-                        💕 Zobacz przykłady ofert matrymonialnych
+                      <a href="https://matrymonialne24.pl/" target="_blank" rel="noopener noreferrer" className="flex flex-col md:flex-row md:items-center md:justify-center text-center">
+                        <span className="whitespace-pre-line md:whitespace-normal">💕 Zobacz przykłady{"\n"}ofert matrymonialnych</span>
                       </a>
                     </Button>
                   </motion.div>
@@ -617,10 +624,10 @@ export default function Home() {
                     <Button 
                       asChild
                       variant="outline" 
-                      className="w-full h-14 md:h-20 text-base md:text-lg font-bold border-2 border-orange-400 text-orange-600 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100 shadow-lg px-4"
+                      className="w-full h-20 md:h-20 text-base md:text-lg font-bold border-2 border-orange-400 text-orange-600 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100 shadow-lg px-4"
                     >
-                      <a href="https://matrymonialne24.pl/kontakt/" target="_blank" rel="noopener noreferrer">
-                        🏠 Zarezerwuj prywatną konsultację
+                      <a href="https://matrymonialne24.pl/kontakt/" target="_blank" rel="noopener noreferrer" className="flex flex-col md:flex-row md:items-center md:justify-center text-center">
+                        <span className="whitespace-pre-line md:whitespace-normal">🏠 Zarezerwuj prywatną{"\n"}konsultację</span>
                       </a>
                     </Button>
                   </motion.div>
