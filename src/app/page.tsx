@@ -291,7 +291,7 @@ export default function Home() {
                         >
                                                      <Button
                              onClick={() => selectOption(option)}
-                             className="w-full max-w-md mx-auto min-h-24 h-auto md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-3 md:px-4 whitespace-pre-line py-4 md:py-3 flex items-center justify-center gap-2"
+                             className="w-full max-w-md mx-auto min-h-[88px] h-auto md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-3 md:px-4 whitespace-pre-line py-3.5 md:py-3 flex items-center justify-center gap-2"
                            >
                             {emoji && <span className="text-2xl md:text-xl lg:text-2xl">{emoji}</span>}
                             {text}
@@ -468,7 +468,7 @@ export default function Home() {
             className="max-w-6xl mx-auto"
           >
                          <Card className="bg-white/95 backdrop-blur-sm shadow-2xl border-0">
-               <CardHeader className="text-center pb-6">
+               <CardHeader className="text-center pb-6 px-4 sm:px-6">
                  <motion.div
                    animate={{ 
                      scale: [1, 1.2, 1, 1.15, 1, 1, 1, 1],
@@ -490,10 +490,10 @@ export default function Home() {
                      className="filter drop-shadow-lg"
                    />
                  </motion.div>
-                                 <CardTitle className="text-4xl md:text-5xl mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+                                 <CardTitle className="text-2xl sm:text-3xl md:text-5xl mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight px-4 break-words">
                    Pakiet Najkorzystniejszy
                  </CardTitle>
-                                 <p className="text-xl text-gray-700 mb-8">
+                                 <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 px-4 break-words">
                    Wszystko, czego potrzebujesz, aby znaleźć miłość swojego życia
                  </p>
               </CardHeader>
