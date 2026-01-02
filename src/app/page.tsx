@@ -291,9 +291,9 @@ export default function Home() {
                         >
                                                      <Button
                              onClick={() => selectOption(option)}
-                             className="w-full max-w-md mx-auto h-20 md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-4 whitespace-pre-line py-3"
+                             className="w-full max-w-md mx-auto h-20 md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-3 md:px-4 whitespace-pre-line py-3 flex items-center justify-center gap-2"
                            >
-                            {emoji && <span className="text-2xl md:text-xl lg:text-2xl mr-2">{emoji}</span>}
+                            {emoji && <span className="text-2xl md:text-xl lg:text-2xl">{emoji}</span>}
                             {text}
                           </Button>
                         </motion.div>
