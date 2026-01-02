@@ -190,9 +190,9 @@ export default function Home() {
             </motion.div>
             
             {/* Phone number - right below logo on mobile, hidden on desktop */}
-            <p className="text-base text-gray-600 font-medium text-center order-2 md:hidden mt-2">
-              <Phone className="inline text-gray-600 mr-2 align-middle" size={18} />
-              <span className="mr-8">600 434 700</span>
+            <p className="text-sm sm:text-base text-gray-600 font-medium text-center order-2 md:hidden mt-2 whitespace-nowrap px-2">
+              <Phone className="inline text-gray-600 mr-1.5 align-middle" size={18} />
+              <span className="mr-3 sm:mr-4">600 434 700</span>
               <span>Zasięg ogólnopolski</span>
             </p>
             
