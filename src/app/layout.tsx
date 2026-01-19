@@ -30,8 +30,11 @@ export const metadata: Metadata = {
     canonical: 'https://swatanie.pl',
   },
   icons: {
-    icon: '/slice1.svg',
-    shortcut: '/slice1.svg',
+    icon: [
+      { url: '/slice1.ico', sizes: 'any' },
+      { url: '/slice1.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/slice1.ico',
     apple: '/slice1.svg',
   },
   openGraph: {
