@@ -180,11 +180,14 @@ export default function RootLayout({
                 'anonymize_ip': true,
                 'allow_google_signals': false,
                 'allow_ad_personalization_signals': false,
-                'cookie_expires': 0
+                'cookie_flags': 'SameSite=None;Secure',
+                'send_page_view': true
               });
             } else {
               // Normalna konfiguracja z cookies dla matrymonialne24.pl
-              gtag('config', '${GA_MEASUREMENT_ID}');
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                'send_page_view': true
+              });
             }
           `}
         </Script>
