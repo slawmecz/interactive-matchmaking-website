@@ -162,6 +162,14 @@ export default function Home() {
         })}
       </div>
 
+      {/* SEO Content - Always visible for search engines */}
+      <div className="sr-only">
+        <h1>Biuro Matrymonialne Magnes - Znajdź miłość swojego życia</h1>
+        <p>Biuro Matrymonialne Magnes oferuje profesjonalne usługi w zakresie poszukiwania partnera życiowego. 22 lata doświadczenia, pełna dyskrecja i anonimowość. Oferujemy 12 miesięcy aktywnego przedstawiania fotoofert, organizację randek, promocję ogłoszeń oraz bezpośredni kontakt z właścicielem biura. Zasięg ogólnopolski. Telefon: 600 434 700.</p>
+        <h2>Usługi Biura Matrymonialnego Magnes</h2>
+        <p>Nasze biuro matrymonialne oferuje kompleksowe usługi: anonimowość i dyskrecja na najwyższym poziomie, możliwość wyboru partnera, pierwszeństwo w dostępie do nowych osób, organizacja randek na miejscu w biurze, wypromowanie ogłoszenia w internecie i mediach społecznościowych, możliwość przedstawienia fotoofert u klienta w domu. Pakiet Najkorzystniejszy zawiera wszystkie te korzyści.</p>
+      </div>
+
       <div className="container mx-auto px-4 py-8 relative z-10">
         {/* Header with Logo Area */}
         <motion.div 
@@ -255,9 +263,10 @@ export default function Home() {
               >
                 <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
                   <CardHeader className="text-center pb-6">
-                    <CardTitle className="text-3xl md:text-4xl mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <h2 className="text-3xl md:text-4xl mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">
                       {storySteps[currentStep].title}
-                    </CardTitle>
+                    </h2>
+                    <CardTitle className="sr-only">{storySteps[currentStep].title}</CardTitle>
                                          <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed font-medium whitespace-pre-line">
                        {currentStep === 1 ? (
                          <>
@@ -490,9 +499,10 @@ export default function Home() {
                      className="filter drop-shadow-lg"
                    />
                  </motion.div>
-                                 <CardTitle className="text-2xl sm:text-3xl md:text-5xl mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight px-4 break-words">
+                                 <h2 className="text-2xl sm:text-3xl md:text-5xl mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight px-4 break-words font-bold">
                    Pakiet Najkorzystniejszy
-                 </CardTitle>
+                 </h2>
+                                 <CardTitle className="sr-only">Pakiet Najkorzystniejszy - Biuro Matrymonialne Magnes</CardTitle>
                                  <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 px-4 break-words">
                    Wszystko, czego potrzebujesz, aby znaleźć miłość swojego życia
                  </p>
