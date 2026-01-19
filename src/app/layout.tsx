@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -151,11 +152,42 @@ export default function RootLayout({
     }
   };
 
+  // Google Analytics Measurement ID - zamień na swój ID z Google Analytics
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
+
   return (
     <html lang="pl">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
+        {/* Google Analytics 4 - bez cookies dla swatanie.pl, z cookies dla matrymonialne24.pl */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            // Sprawdź hostname - jeśli swatanie.pl, wyłącz cookies
+            const isSwatanie = window.location.hostname === 'swatanie.pl' || window.location.hostname === 'www.swatanie.pl';
+            
+            if (isSwatanie) {
+              // Konfiguracja bez cookies dla swatanie.pl (zgodność z RODO)
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                'anonymize_ip': true,
+                'allow_google_signals': false,
+                'allow_ad_personalization_signals': false,
+                'cookie_expires': 0
+              });
+            } else {
+              // Normalna konfiguracja z cookies dla matrymonialne24.pl
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            }
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessData) }}
