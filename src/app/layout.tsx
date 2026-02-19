@@ -32,10 +32,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/slice1.ico', sizes: 'any' },
       { url: '/slice1.svg', type: 'image/svg+xml' },
     ],
-    shortcut: '/slice1.ico',
+    shortcut: '/favicon.ico',
     apple: '/slice1.svg',
   },
   openGraph: {
