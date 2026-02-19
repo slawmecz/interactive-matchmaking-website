@@ -117,7 +117,7 @@ export default function Home() {
   const progress = showFinal ? 100 : (currentStep / storySteps.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
+    <main id="main-content" className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
       {/* Floating Hearts and Brand Elements Animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(18)].map((_, i) => {
@@ -893,6 +893,6 @@ export default function Home() {
            </motion.a>
          </motion.div>
        </div>
-    </div>
+    </main>
   );
 }

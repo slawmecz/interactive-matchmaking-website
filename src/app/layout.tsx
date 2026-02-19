@@ -1,7 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0f172a",
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,12 +27,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://swatanie.pl'),
-  title: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",
+  title: {
+    default: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",
+    template: "%s | Biuro Matrymonialne Magnes",
+  },
   description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa. Rozpocznij swoją drogę do szczęścia już dziś!",
   keywords: "biuro matrymonialne, poszukiwanie partnera, randki, związki, miłość, Magnes, matrymonialne24, swatanie, biuro matrymonialne online, znajdź partnera, randki online, agencja matrymonialna",
-  authors: [{ name: "Biuro Matrymonialne Magnes" }],
+  authors: [{ name: "Biuro Matrymonialne Magnes", url: "https://swatanie.pl" }],
   creator: "Biuro Matrymonialne Magnes",
   publisher: "Biuro Matrymonialne Magnes",
+  applicationName: "Biuro Matrymonialne Magnes",
   alternates: {
     canonical: 'https://swatanie.pl',
   },
@@ -47,12 +57,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pl_PL",
     countryName: "Poland",
+    images: [
+      {
+        url: "/Logo.svg",
+        width: 512,
+        height: 512,
+        alt: "Biuro Matrymonialne Magnes - logo",
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",
     description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
+    images: ["/Logo.svg"],
   },
+  manifest: "/manifest.json",
   robots: {
     index: true,
     follow: true,
@@ -67,6 +87,7 @@ export const metadata: Metadata = {
   verification: {
     google: 'oDqTWQB5f5hJUEmTb8F',
   },
+  referrer: "strict-origin-when-cross-origin",
 };
 
 export default function RootLayout({
@@ -80,6 +101,7 @@ export default function RootLayout({
     "name": "Biuro Matrymonialne Magnes",
     "description": "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
     "url": "https://swatanie.pl",
+    "image": "https://swatanie.pl/Logo.svg",
     "telephone": "+48600434700",
     "address": {
       "@type": "PostalAddress",
@@ -153,6 +175,45 @@ export default function RootLayout({
     }
   };
 
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Jak działa Biuro Matrymonialne Magnes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oferujemy interaktywną ścieżkę wyboru pakietu: dyskrecję i anonimowość, możliwość wyboru partnera, bezpośredni kontakt z właścicielem (spotkanie u klienta lub w siedzibie), promocję ogłoszeń, pierwszeństwo do nowych ofert oraz 12 miesięcy aktywnego przedstawiania fotoofert."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy w Biurze Magnes mogę zachować anonimowość?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak. Szanujemy prywatność – nie musisz przekazywać zdjęcia; wszystko odbywa się za Twoją zgodą. Możesz zachować pełną anonimowość lub pokazać siebie tylko wtedy, gdy chcesz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jakie usługi obejmuje pakiet Biura Matrymonialnego Magnes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Anonimowość i dyskrecja, 12 miesięcy ofert szytych na miarę, Ty wybierasz – masz kontrolę, pierwszeństwo w dostępie do nowych osób, organizacja randek w biurze, wypromowanie ogłoszenia, bezpośredni kontakt z właścicielem, możliwość przedstawienia fotoofert u klienta w domu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakim obszarze działa Biuro Matrymonialne Magnes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zasięg ogólnopolski. Właściciel biura może przyjechać do klienta – przedstawienie ofert, sesja zdjęciowa i rozmowa w komfortowych warunkach."
+        }
+      }
+    ]
+  };
+
   // Google Analytics Measurement ID - zamień na swój ID z Google Analytics
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
 
@@ -208,6 +269,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceData) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+        />
+        <a
+          href="#main-content"
+          className="fixed left-4 top-4 z-[100] -translate-y-[200%] rounded-md bg-slate-800 px-4 py-2 text-white shadow-lg transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-pink-500"
+        >
+          Przejdź do treści
+        </a>
         {children}
       </body>
     </html>
