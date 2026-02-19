@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     default: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",
     template: "%s | Biuro Matrymonialne Magnes",
   },
-  description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa. Rozpocznij swoją drogę do szczęścia już dziś!",
-  keywords: "biuro matrymonialne, poszukiwanie partnera, randki, związki, miłość, Magnes, matrymonialne24, swatanie, biuro matrymonialne online, znajdź partnera, randki online, agencja matrymonialna",
+  description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja. Samotne panie i panowie 50+, 60+ – zapraszamy. Swatanie Warszawa, Wielkopolska, Małopolska i cała Polska.",
+  keywords: "biuro matrymonialne, poszukiwanie partnera, randki, związki, miłość, Magnes, matrymonialne24, swatanie, biuro matrymonialne online, znajdź partnera, randki online, agencja matrymonialna, swatanie Warszawa, swatanie Kraków, swatanie Wrocław, biuro matrymonialne Wielkopolska, Małopolska, Śląsk, Pomorze, Mazowsze, Poznań, Gdańsk, samotne panie po 60, samotni panowie po 60, samotne panie po 50, samotni panowie po 50, randki 50 plus, randki 60 plus, biuro matrymonialne dla dojrzałych, znajdź partnera 50 plus",
   authors: [{ name: "Biuro Matrymonialne Magnes", url: "https://swatanie.pl" }],
   creator: "Biuro Matrymonialne Magnes",
   publisher: "Biuro Matrymonialne Magnes",
@@ -107,10 +107,30 @@ export default function RootLayout({
       "@type": "PostalAddress",
       "addressCountry": "PL"
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Poland"
-    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Dolnośląskie" },
+      { "@type": "AdministrativeArea", "name": "Kujawsko-pomorskie" },
+      { "@type": "AdministrativeArea", "name": "Lubelskie" },
+      { "@type": "AdministrativeArea", "name": "Lubuskie" },
+      { "@type": "AdministrativeArea", "name": "Łódzkie" },
+      { "@type": "AdministrativeArea", "name": "Małopolskie" },
+      { "@type": "AdministrativeArea", "name": "Mazowieckie" },
+      { "@type": "AdministrativeArea", "name": "Opolskie" },
+      { "@type": "AdministrativeArea", "name": "Podkarpackie" },
+      { "@type": "AdministrativeArea", "name": "Podlaskie" },
+      { "@type": "AdministrativeArea", "name": "Pomorskie" },
+      { "@type": "AdministrativeArea", "name": "Śląskie" },
+      { "@type": "AdministrativeArea", "name": "Świętokrzyskie" },
+      { "@type": "AdministrativeArea", "name": "Warmińsko-mazurskie" },
+      { "@type": "AdministrativeArea", "name": "Wielkopolskie" },
+      { "@type": "AdministrativeArea", "name": "Zachodniopomorskie" },
+      { "@type": "City", "name": "Warszawa" },
+      { "@type": "City", "name": "Kraków" },
+      { "@type": "City", "name": "Wrocław" },
+      { "@type": "City", "name": "Poznań" },
+      { "@type": "City", "name": "Gdańsk" },
+      { "@type": "City", "name": "Konin" }
+    ],
     "priceRange": "$$",
     "sameAs": [
       "https://matrymonialne24.pl"
@@ -164,10 +184,24 @@ export default function RootLayout({
       "@type": "LocalBusiness",
       "name": "Biuro Matrymonialne Magnes"
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Poland"
-    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Dolnośląskie" },
+      { "@type": "AdministrativeArea", "name": "Kujawsko-pomorskie" },
+      { "@type": "AdministrativeArea", "name": "Lubelskie" },
+      { "@type": "AdministrativeArea", "name": "Lubuskie" },
+      { "@type": "AdministrativeArea", "name": "Łódzkie" },
+      { "@type": "AdministrativeArea", "name": "Małopolskie" },
+      { "@type": "AdministrativeArea", "name": "Mazowieckie" },
+      { "@type": "AdministrativeArea", "name": "Opolskie" },
+      { "@type": "AdministrativeArea", "name": "Podkarpackie" },
+      { "@type": "AdministrativeArea", "name": "Podlaskie" },
+      { "@type": "AdministrativeArea", "name": "Pomorskie" },
+      { "@type": "AdministrativeArea", "name": "Śląskie" },
+      { "@type": "AdministrativeArea", "name": "Świętokrzyskie" },
+      { "@type": "AdministrativeArea", "name": "Warmińsko-mazurskie" },
+      { "@type": "AdministrativeArea", "name": "Wielkopolskie" },
+      { "@type": "AdministrativeArea", "name": "Zachodniopomorskie" }
+    ],
     "description": "Usługi biura matrymonialnego: anonimowość, dyskrecja, profesjonalna obsługa, 12 miesięcy ofert, organizacja randek, promocja ogłoszeń.",
     "offers": {
       "@type": "Offer",
@@ -209,6 +243,14 @@ export default function RootLayout({
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Zasięg ogólnopolski. Właściciel biura może przyjechać do klienta – przedstawienie ofert, sesja zdjęciowa i rozmowa w komfortowych warunkach."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy Biuro Magnes obsługuje samotne panie i panów po 50., 60. roku życia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak. Oferujemy usługi dla osób dojrzałych – samotne panie i panowie 50+, 60+. Pełna dyskrecja, indywidualne podejście i 22 lata doświadczenia w swataniu."
         }
       }
     ]

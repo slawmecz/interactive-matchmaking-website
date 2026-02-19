@@ -162,10 +162,12 @@ export default function Home() {
         })}
       </div>
 
-      {/* SEO Content - Always visible for search engines */}
+      {/* SEO Content - hidden from view (sr-only), for search engines and accessibility */}
       <div className="sr-only">
         <h1>Biuro Matrymonialne Magnes - Znajdź miłość swojego życia</h1>
         <p>Biuro Matrymonialne Magnes oferuje profesjonalne usługi w zakresie poszukiwania partnera życiowego. 22 lata doświadczenia, pełna dyskrecja i anonimowość. Oferujemy 12 miesięcy aktywnego przedstawiania fotoofert, organizację randek, promocję ogłoszeń oraz bezpośredni kontakt z właścicielem biura. Zasięg ogólnopolski. Telefon: 600 434 700.</p>
+        <p>Swatanie Warszawa, Wielkopolska, Małopolska, Śląsk, Pomorze, Mazowsze, Lubelszczyzna, Dolny Śląsk i pozostałe regiony Polski – zasięg ogólnopolski.</p>
+        <p>Dla samotnych pań i panów po 50. i 60. roku życia – randki 50 plus, 60 plus. Dyskrecja i indywidualne podejście.</p>
         <h2>Usługi Biura Matrymonialnego Magnes</h2>
         <p>Nasze biuro matrymonialne oferuje kompleksowe usługi: anonimowość i dyskrecja na najwyższym poziomie, możliwość wyboru partnera, pierwszeństwo w dostępie do nowych osób, organizacja randek na miejscu w biurze, wypromowanie ogłoszenia w internecie i mediach społecznościowych, możliwość przedstawienia fotoofert u klienta w domu. Pakiet Najkorzystniejszy zawiera wszystkie te korzyści.</p>
       </div>
