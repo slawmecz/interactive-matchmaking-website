@@ -165,7 +165,7 @@ export default function Home() {
       {/* SEO Content - hidden from view (sr-only), for search engines and accessibility */}
       <div className="sr-only">
         <h1>Biuro Matrymonialne Magnes - Znajdź miłość swojego życia</h1>
-        <p>Biuro Matrymonialne Magnes oferuje profesjonalne usługi w zakresie poszukiwania partnera życiowego. 22 lata doświadczenia, pełna dyskrecja i anonimowość. Oferujemy 12 miesięcy aktywnego przedstawiania fotoofert, organizację randek, promocję ogłoszeń oraz bezpośredni kontakt z właścicielem biura. Zasięg ogólnopolski. Telefon: 600 434 700.</p>
+        <p>Biuro Matrymonialne Magnes oferuje profesjonalne usługi w zakresie poszukiwania partnera życiowego. 23 lata doświadczenia, pełna dyskrecja i anonimowość. Oferujemy 12 miesięcy aktywnego przedstawiania fotoofert, organizację randek, promocję ogłoszeń oraz bezpośredni kontakt z właścicielem biura. Zasięg ogólnopolski. Telefon: 600 434 700.</p>
         <p>Swatanie Warszawa, Wielkopolska, Małopolska, Śląsk, Pomorze, Mazowsze, Lubelszczyzna, Dolny Śląsk i pozostałe regiony Polski – zasięg ogólnopolski.</p>
         <p>Dla samotnych pań i panów po 50. i 60. roku życia – randki 50 plus, 60 plus. Dyskrecja i indywidualne podejście.</p>
         <h2>Usługi Biura Matrymonialnego Magnes</h2>
@@ -826,7 +826,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center justify-center md:justify-start gap-2">
                       <Clock className="text-purple-600 flex-shrink-0 ml-2 md:ml-0" size={24} />
-                      <span className="text-lg text-purple-700 max-w-[240px] md:max-w-[210px]">22 lata doświadczenia <span className="whitespace-nowrap">w łączeniu serc</span></span>
+                      <span className="text-lg text-purple-700 max-w-[240px] md:max-w-[210px]">23 lata doświadczenia <span className="whitespace-nowrap">w łączeniu serc</span></span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="text-purple-600" size={24} />

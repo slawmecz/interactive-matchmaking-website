@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     default: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",
     template: "%s | Biuro Matrymonialne Magnes",
   },
-  description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja. Samotne panie i panowie 50+, 60+ – zapraszamy. Swatanie Warszawa, Wielkopolska, Małopolska i cała Polska.",
+  description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 23 lata doświadczenia, pełna dyskrecja. Samotne panie i panowie 50+, 60+ – zapraszamy. Swatanie Warszawa, Wielkopolska, Małopolska i cała Polska.",
   keywords: "biuro matrymonialne, poszukiwanie partnera, randki, związki, miłość, Magnes, matrymonialne24, swatanie, biuro matrymonialne online, znajdź partnera, randki online, agencja matrymonialna, swatanie Warszawa, swatanie Kraków, swatanie Wrocław, biuro matrymonialne Wielkopolska, Małopolska, Śląsk, Pomorze, Mazowsze, Poznań, Gdańsk, samotne panie po 60, samotni panowie po 60, samotne panie po 50, samotni panowie po 50, randki 50 plus, randki 60 plus, biuro matrymonialne dla dojrzałych, znajdź partnera 50 plus",
   authors: [{ name: "Biuro Matrymonialne Magnes", url: "https://swatanie.pl" }],
   creator: "Biuro Matrymonialne Magnes",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",
-    description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
+    description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 23 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
     url: 'https://swatanie.pl',
     siteName: 'Biuro Matrymonialne Magnes',
     type: "website",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",
-    description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
+    description: "Interaktywna przygoda w poszukiwaniu partnera życiowego. 23 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
     images: ["/Logo.svg"],
   },
   manifest: "/manifest.json",
@@ -99,7 +99,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Biuro Matrymonialne Magnes",
-    "description": "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
+    "description": "Interaktywna przygoda w poszukiwaniu partnera życiowego. 23 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
     "url": "https://swatanie.pl",
     "image": "https://swatanie.pl/Logo.svg",
     "telephone": "+48600434700",
@@ -165,7 +165,7 @@ export default function RootLayout({
     "@type": "WebSite",
     "name": "Biuro Matrymonialne Magnes",
     "url": "https://swatanie.pl",
-    "description": "Interaktywna przygoda w poszukiwaniu partnera życiowego. 22 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
+    "description": "Interaktywna przygoda w poszukiwaniu partnera życiowego. 23 lata doświadczenia, pełna dyskrecja, profesjonalna obsługa.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -250,7 +250,7 @@ export default function RootLayout({
         "name": "Czy Biuro Magnes obsługuje samotne panie i panów po 50., 60. roku życia?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Tak. Oferujemy usługi dla osób dojrzałych – samotne panie i panowie 50+, 60+. Pełna dyskrecja, indywidualne podejście i 22 lata doświadczenia w swataniu."
+          "text": "Tak. Oferujemy usługi dla osób dojrzałych – samotne panie i panowie 50+, 60+. Pełna dyskrecja, indywidualne podejście i 23 lata doświadczenia w swataniu."
         }
       }
     ]
