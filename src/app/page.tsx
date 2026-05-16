@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Phone, Clock, CheckCircle, Users } from "lucide-react";
+import { Heart, Phone, Clock, CheckCircle, Users, ArrowDown } from "lucide-react";
 import Image from "next/image";
 
 // Base path - empty for custom domain
@@ -299,11 +299,32 @@ export default function Home() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.2 + index * 0.1 }}
+                          className="relative"
                         >
-                                                     <Button
-                             onClick={() => selectOption(option)}
-                             className="w-full max-w-md mx-auto min-h-[88px] h-auto md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-3 md:px-4 whitespace-pre-line py-3.5 md:py-3 flex items-center justify-center gap-2"
-                           >
+                          {currentStep === 0 && (
+                            <motion.div
+                              className="flex flex-col items-center gap-1 mb-2"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1, y: [0, 8, 0] }}
+                              transition={{
+                                opacity: { delay: 0.6, duration: 0.4 },
+                                y: { delay: 0.9, duration: 1.1, repeat: Infinity, ease: "easeInOut" },
+                              }}
+                              aria-hidden="true"
+                            >
+                              <span className="text-base md:text-lg font-semibold text-purple-600 tracking-wide">
+                                Kliknij
+                              </span>
+                              <ArrowDown
+                                className="w-9 h-9 md:w-10 md:h-10 text-pink-600 drop-shadow-sm"
+                                strokeWidth={2.5}
+                              />
+                            </motion.div>
+                          )}
+                          <Button
+                            onClick={() => selectOption(option)}
+                            className="w-full max-w-md mx-auto min-h-[88px] h-auto md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-3 md:px-4 whitespace-pre-line py-3.5 md:py-3 flex items-center justify-center gap-2"
+                          >
                             {emoji && <span className="text-2xl md:text-xl lg:text-2xl">{emoji}</span>}
                             {text}
                           </Button>
