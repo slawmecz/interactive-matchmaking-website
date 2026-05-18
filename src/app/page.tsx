@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Phone, Clock, CheckCircle, Users } from "lucide-react";
+import { Heart, Phone, Clock, CheckCircle, Users, ArrowDown } from "lucide-react";
 import Image from "next/image";
 
 // Base path - empty for custom domain
@@ -193,8 +193,7 @@ export default function Home() {
                 alt="Biuro Matrymonialne Magnes Logo"
                 width={350}
                 height={88}
-                className="h-16 sm:h-20 md:h-20 lg:h-24 w-auto"
-                style={{ minHeight: '64px', minWidth: '200px' }}
+                className="h-16 sm:h-20 md:h-18 lg:h-20 w-auto min-h-16 min-w-[200px] md:min-h-[4.5rem] md:min-w-[170px]"
                 priority
               />
             </motion.div>
@@ -214,7 +213,7 @@ export default function Home() {
                 alt="Satysfakcja"
                 width={200}
                 height={60}
-                className="w-[140px] md:w-[200px] h-auto md:order-1"
+                className="w-[140px] md:w-[170px] lg:w-[175px] h-auto md:order-1"
               />
               
               {/* Lata istnienia - smaller on mobile, right on desktop */}
@@ -223,12 +222,12 @@ export default function Home() {
                 alt="Lata istnienia"
                 width={200}
                 height={60}
-                className="w-[140px] md:w-[200px] h-auto md:order-3"
+                className="w-[140px] md:w-[170px] lg:w-[175px] h-auto md:order-3"
               />
             </div>
           </div>
           {/* Phone number - shown on desktop only */}
-          <p className="text-xl text-gray-600 font-medium text-center -mt-12 hidden md:block">
+          <p className="text-xl text-gray-600 font-medium text-center -mt-10 hidden md:block">
             <Phone className="inline text-gray-600 mr-2 align-middle" size={20} />
             <span className="mr-8">600 434 700</span>
             <span>Zasięg ogólnopolski</span>
@@ -263,13 +262,13 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
                 className="max-w-4xl mx-auto"
               >
-                <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0">
-                  <CardHeader className="text-center pb-6">
-                    <h2 className="text-3xl md:text-4xl mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">
+                <Card className={`bg-white/90 backdrop-blur-sm shadow-xl border-0 ${currentStep === 0 ? "gap-2" : ""}`}>
+                  <CardHeader className={`text-center ${currentStep === 0 ? "pb-2" : "pb-6"}`}>
+                    <h2 className="text-3xl md:text-3xl lg:text-[2.125rem] mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">
                       {storySteps[currentStep].title}
                     </h2>
                     <CardTitle className="sr-only">{storySteps[currentStep].title}</CardTitle>
-                                         <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed font-medium whitespace-pre-line">
+                                         <p className="text-xl md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium whitespace-pre-line">
                        {currentStep === 1 ? (
                          <>
                            <span className="md:hidden">{storySteps[currentStep].content.replace(/\n/, ' ')}</span>
@@ -280,7 +279,7 @@ export default function Home() {
                        )}
                      </p>
                     {storySteps[currentStep].subtitle && (
-                      <p className="text-lg text-purple-600 font-semibold mt-4">
+                      <p className={`text-lg md:text-base text-purple-600 font-semibold ${currentStep === 0 ? "mt-2" : "mt-4"}`}>
                         {storySteps[currentStep].subtitle}
                       </p>
                     )}
@@ -299,11 +298,32 @@ export default function Home() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.2 + index * 0.1 }}
+                          className="relative"
                         >
-                                                     <Button
-                             onClick={() => selectOption(option)}
-                             className="w-full max-w-md mx-auto min-h-[88px] h-auto md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-3 md:px-4 whitespace-pre-line py-3.5 md:py-3 flex items-center justify-center gap-2"
-                           >
+                          {currentStep === 0 && (
+                            <motion.div
+                              className="flex flex-col items-center gap-0 mb-0"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1, y: [0, 8, 0] }}
+                              transition={{
+                                opacity: { delay: 0.6, duration: 0.4 },
+                                y: { delay: 0.9, duration: 1.1, repeat: Infinity, ease: "easeInOut" },
+                              }}
+                              aria-hidden="true"
+                            >
+                              <span className="text-base md:text-lg font-semibold text-purple-600 tracking-wide">
+                                Kliknij
+                              </span>
+                              <ArrowDown
+                                className="w-9 h-9 md:w-10 md:h-10 text-pink-600 drop-shadow-sm"
+                                strokeWidth={2.5}
+                              />
+                            </motion.div>
+                          )}
+                          <Button
+                            onClick={() => selectOption(option)}
+                            className={`w-full max-w-md mx-auto min-h-[88px] h-auto md:h-20 text-base md:text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg touch-manipulation px-3 md:px-4 whitespace-pre-line py-3.5 md:py-3 flex items-center justify-center gap-2${currentStep === 0 ? " mt-3" : ""}`}
+                          >
                             {emoji && <span className="text-2xl md:text-xl lg:text-2xl">{emoji}</span>}
                             {text}
                           </Button>
