@@ -42,12 +42,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/slice1.ico', sizes: 'any' },
-      { url: '/slice1.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg', type: 'image/svg+xml', sizes: '512x512' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/slice1.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   openGraph: {
     title: "Biuro Matrymonialne Magnes - Znajdź miłość swojego życia",

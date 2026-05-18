@@ -11,15 +11,9 @@
   "lang": "pl",
   "icons": [
     {
-      "src": "/slice1.svg",
-      "sizes": "any",
+      "src": "/favicon.svg",
+      "sizes": "512x512",
       "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "/favicon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon",
       "purpose": "any"
     }
   ]
